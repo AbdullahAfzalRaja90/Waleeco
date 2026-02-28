@@ -1,6 +1,6 @@
 /* ================================================================
-   SYSTEMS LIMITED — EXACT CONTENT DATA
-   Source: systemsltd.com (thoroughly examined March 2026)
+   WALEECO — EXACT CONTENT DATA
+   Source: waleeco.com (thoroughly examined March 2026)
    ================================================================ */
 
 // ── HERO SLIDES (exact text from homepage slider) ──────────────
@@ -99,32 +99,32 @@ export const insights = [
   {
     id: 1,
     type: 'NEWSROOM',
-    title: 'Systems Limited acquires Confiz to expand its global presence in North America and Europe',
-    excerpt: 'Systems Limited has acquired Confiz, strengthening its presence in key global markets and expanding its data, cloud, and AI modernization capabilities, especially in Retail and CPG.',
+    title: 'Waleeco acquires Confiz to expand its global presence in North America and Europe',
+    excerpt: 'Waleeco has acquired Confiz, strengthening its presence in key global markets and expanding its data, cloud, and AI modernization capabilities, especially in Retail and CPG.',
     img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80',
     link: '/insights',
   },
   {
     id: 2,
     type: 'NEWSROOM',
-    title: 'Systems Limited achieves the 2025-2026 Microsoft AI Business Solutions Inner Circle award',
-    excerpt: 'Systems Limited recognized in Microsoft Inner Circle 2025–2026 for AI Business Solutions, honoring top-tier sales performance and innovation in delivering impactful AI solutions.',
+    title: 'Waleeco achieves the 2025-2026 Microsoft AI Business Solutions Inner Circle award',
+    excerpt: 'Waleeco recognized in Microsoft Inner Circle 2025–2026 for AI Business Solutions, honoring top-tier sales performance and innovation in delivering impactful AI solutions.',
     img: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?w=600&q=80',
     link: '/insights',
   },
   {
     id: 3,
     type: 'NEWSROOM',
-    title: 'Systems Limited Recognized as "Aspirant" for Banking IT Services in Everest Group\'s PEAK Matrix® Assessment',
-    excerpt: 'Systems Limited has earned "Aspirant" recognition in Everest Group\'s PEAK Matrix® 2025 for Banking IT Services, highlighting its banking transformation capabilities.',
+    title: 'Waleeco Recognized as "Aspirant" for Banking IT Services in Everest Group\'s PEAK Matrix® Assessment',
+    excerpt: 'Waleeco has earned "Aspirant" recognition in Everest Group\'s PEAK Matrix® 2025 for Banking IT Services, highlighting its banking transformation capabilities.',
     img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80',
     link: '/insights',
   },
   {
     id: 4,
     type: 'NEWSROOM',
-    title: 'Bank ABC\'s ila Bank Goes Live with Temenos Core on AWS, Implemented by Systems Limited',
-    excerpt: 'ila Bank, powered by Bank ABC, has migrated to Temenos\' cloud-native Core Banking and Payments platform on AWS, delivered by Systems Limited, to boost agility and scalability.',
+    title: 'Bank ABC\'s ila Bank Goes Live with Temenos Core on AWS, Implemented by Waleeco',
+    excerpt: 'ila Bank, powered by Bank ABC, has migrated to Temenos\' cloud-native Core Banking and Payments platform on AWS, delivered by Waleeco, to boost agility and scalability.',
     img: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80',
     link: '/insights',
   },
@@ -177,7 +177,7 @@ export const allInsights = [
     id: 10,
     type: 'NEWSROOM',
     title: 'Techvista attends GITEX, brings home value-driven business insights',
-    excerpt: 'Systems Limited\'s Techvista team attended GITEX 2024, engaging with global technology leaders and returning with transformative insights.',
+    excerpt: 'Waleeco\'s Techvista team attended GITEX 2024, engaging with global technology leaders and returning with transformative insights.',
     img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80',
     link: '/insights',
   },
@@ -337,11 +337,11 @@ export const leadership = [
   { name: 'Asif Akram', title: 'Chief Operating Officer', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80', linkedin: 'https://pk.linkedin.com/in/akramasif' },
   { name: 'Roohi Khan', title: 'Group CFO', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80', linkedin: 'https://pk.linkedin.com/in/roohikhan1' },
   { name: 'Toima Asghar', title: 'Group CHRO', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80', linkedin: 'https://pk.linkedin.com/in/toima' },
-  { name: 'Khurram Majeed', title: 'General Manager, Systems MEA', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80', linkedin: 'https://ae.linkedin.com/in/khurram-majeed-34409b3' },
-  { name: 'Rao Hamid Khan', title: 'General Manager, Systems Arabia & Bahrain', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80', linkedin: 'https://www.linkedin.com/in/raohamid/' },
+  { name: 'Khurram Majeed', title: 'General Manager, Waleeco MEA', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80', linkedin: 'https://ae.linkedin.com/in/khurram-majeed-34409b3' },
+  { name: 'Rao Hamid Khan', title: 'General Manager, Waleeco Arabia & Bahrain', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80', linkedin: 'https://www.linkedin.com/in/raohamid/' },
   { name: 'Muhammad Mairaj Yousuf', title: 'General Manager, Pakistan', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80', linkedin: 'https://pk.linkedin.com/in/muhammad-mairaj-yousuf-52b5445' },
-  { name: 'Waseem Yousaf', title: 'General Manager, Systems APAC', img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80', linkedin: 'https://www.linkedin.com/in/waseemyusaf/' },
-  { name: 'Ahmed Kandil', title: 'General Manager, Systems Egypt', img: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&q=80', linkedin: 'https://eg.linkedin.com/in/anabil' },
+  { name: 'Waseem Yousaf', title: 'General Manager, Waleeco APAC', img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80', linkedin: 'https://www.linkedin.com/in/waseemyusaf/' },
+  { name: 'Ahmed Kandil', title: 'General Manager, Waleeco Egypt', img: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&q=80', linkedin: 'https://eg.linkedin.com/in/anabil' },
   { name: 'Ammara Masood', title: 'General Manager, BFS', img: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80', linkedin: 'https://www.linkedin.com/in/ammara-masood-4624591/' },
   { name: 'Imran Soofi', title: 'General Manager, Telco', img: 'https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&q=80', linkedin: 'https://pk.linkedin.com/in/imransoofi' },
   { name: 'Salman Wajid', title: 'Chief of Process Outsourcing', img: 'https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=400&q=80', linkedin: 'https://www.linkedin.com/in/salmanwajid/' },
@@ -440,10 +440,10 @@ export const careerLocations = [
   'ISLAMABAD', 'KARACHI', 'MULTAN', 'FAISALABAD', 'LAHORE',
 ];
 
-// ── WORKING AT SYSTEMS ─────────────────────────────────────────
-export const workingAtSystems = [
+// ── WORKING AT WALEECO ─────────────────────────────────────────
+export const workingAtWaleeco = [
   {
-    title: 'Working at systems',
+    title: 'Working at Waleeco',
     desc: 'Systems is a great place to start your working life and we offer our people the opportunity to feel good by doing good in their everyday work. Our supportive and inclusive environment enables you to learn, develop and be your best in the role that best suits you.',
     link: '#',
     img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80',
@@ -491,7 +491,7 @@ export const hiringProcess = [
   {
     step: '04',
     label: 'ONBOARDING',
-    desc: 'Our onboarding process will refine and prepare you for your professional journey with Systems Limited.',
+    desc: 'Our onboarding process will refine and prepare you for your professional journey with Waleeco.',
     img: null,
   },
 ];
@@ -518,7 +518,7 @@ export const aiService = {
   heroTitle: 'AI in motion: From experimentation to industry transformation',
   heroImg: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1400&q=80',
   intro: 'As customer expectations evolve, enterprises must move beyond automation to create a dynamic synergy between humans and AI. With advances in cloud and data technologies, we are entering the era of AI industrialization. Its democratization makes responsible AI practices essential for building trust.',
-  introDetail: 'At Systems Limited, we drive AI strategy, execution, and adoption with a business-first approach to deliver lasting impact. We help businesses identify AI opportunities, make informed investments, and implement solutions that unlock new revenue streams, enhance productivity, automate operations, and provide deeper customer insights.',
+  introDetail: 'At Waleeco, we drive AI strategy, execution, and adoption with a business-first approach to deliver lasting impact. We help businesses identify AI opportunities, make informed investments, and implement solutions that unlock new revenue streams, enhance productivity, automate operations, and provide deeper customer insights.',
   offerings: [
     { title: 'Predictive AI', desc: 'Anticipate what\'s next with predictive AI that analyzes patterns in historical data, enabling faster decisions through big data analytics and deep learning.' },
     { title: 'Generative AI', desc: 'Unlock creative solutions using generative AI powered by advanced ML. We offer end-to-end support through workshops, implementation, and seamless integration.' },
@@ -633,22 +633,6 @@ export const navData = [
           { label: 'Our Leadership', href: '/about#leadership' },
           { label: 'Global Presence', href: '/about#global' },
           { label: 'ESG', href: '/about#esg' },
-        ],
-      },
-    ],
-  },
-  { label: 'Careers', href: '/careers' },
-  { label: 'Investors', href: '/investors' },
-  {
-    label: 'Regions',
-    children: [
-      {
-        group: 'Regions',
-        links: [
-          { label: 'Global', href: '/' },
-          { label: 'MEA', href: '/' },
-          { label: 'KSA', href: '/' },
-          { label: 'APAC', href: '/' },
         ],
       },
     ],

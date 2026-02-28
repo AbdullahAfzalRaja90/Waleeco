@@ -29,20 +29,19 @@ const footerCols = [
     links: [
       { label: 'About Us',            href: '/about' },
       { label: 'Leadership',          href: '/about' },
-      { label: 'Careers',             href: '/careers' },
       { label: 'Insights',            href: '/insights' },
       { label: 'Contact Us',          href: '/contact' },
-      { label: 'Investor Relations',  href: '/investors' },
     ],
   },
 ];
 
 const socials = [
-  { Icon: FiLinkedin,  href: 'https://www.linkedin.com/company/systems-limited/', label: 'LinkedIn' },
-  { Icon: FiTwitter,   href: 'https://twitter.com/SystemsLtd',                    label: 'Twitter'  },
-  { Icon: FiFacebook,  href: 'https://www.facebook.com/SystemsLimited/',           label: 'Facebook' },
-  { Icon: FiYoutube,   href: 'https://www.youtube.com/SystemsLimited',             label: 'YouTube'  },
-  { Icon: FiInstagram, href: 'https://www.instagram.com/systemsltd/',              label: 'Instagram'},
+  // placeholder links; update with Waleeco social URLs as needed
+  { Icon: FiLinkedin,  href: '#', label: 'LinkedIn' },
+  { Icon: FiTwitter,   href: '#', label: 'Twitter'  },
+  { Icon: FiFacebook,  href: '#', label: 'Facebook' },
+  { Icon: FiYoutube,   href: '#', label: 'YouTube'  },
+  { Icon: FiInstagram, href: '#', label: 'Instagram'},
 ];
 
 export default function Footer() {
@@ -77,14 +76,8 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand */}
           <div>
-            <Link to="/" className="logo" style={{ marginBottom: 0 }}>
-              <div className="logo-icon">
-                <div className="logo-icon-bg">SL</div>
-              </div>
-              <div className="logo-text-wrap">
-                <span className="logo-name">Systems Limited</span>
-                <span className="logo-tagline">Technology Transformation</span>
-              </div>
+            <Link to="/" className="logo" style={{ marginBottom: 0, display: 'flex', alignItems: 'center' }}>
+              <img src="/MainLogo.png" alt="Waleeco logo" className="logo-img" />
             </Link>
 
             <p className="footer-brand-desc">
@@ -109,14 +102,14 @@ export default function Footer() {
 
             <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: 11 }}>
               <a
-                href="mailto:inquiry@systemsltd.com"
+                href="mailto:inquiry@waleeco.com"
                 style={{ display: 'flex', gap: 10, alignItems: 'center', fontSize: 13, color: 'var(--text-secondary)', transition: 'color 0.2s' }}
               >
-                <FiMail size={14} style={{ color: 'var(--red)', flexShrink: 0 }} />
-                inquiry@systemsltd.com
+                <FiMail size={14} style={{ color: 'var(--blue)', flexShrink: 0 }} />
+                inquiry@waleeco.com
               </a>
               <span style={{ display: 'flex', gap: 10, alignItems: 'center', fontSize: 13, color: 'var(--text-secondary)' }}>
-                <FiMapPin size={14} style={{ color: 'var(--red)', flexShrink: 0 }} />
+                <FiMapPin size={14} style={{ color: 'var(--blue)', flexShrink: 0 }} />
                 Islamabad, Pakistan (HQ)
               </span>
             </div>
@@ -140,7 +133,7 @@ export default function Footer() {
         {/* ── Bottom bar ───────────────────────────────────── */}
         <div className="footer-bottom">
           <div className="footer-copyright">
-            © {year} Systems Limited. All rights reserved.
+            © {year} Waleeco. All rights reserved.
           </div>
           <nav className="footer-legal-links">
             <a href="/" className="footer-legal-link">Privacy Policy</a>

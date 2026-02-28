@@ -7,7 +7,7 @@ import { leadership, awards, offices } from '../data/siteData';
 const tabs = [
   { id: 'philosophy', label: 'OUR PHILOSOPHY' },
   { id: 'values',     label: 'OUR CORE VALUES' },
-  { id: 'way',        label: 'THE SYSTEMS WAY' },
+  { id: 'way',        label: 'THE WALEECO WAY' },
   { id: 'esg',        label: 'ESG' },
 ];
 
@@ -20,7 +20,7 @@ const coreValues = [
   { icon: <FiAward size={20} />, title: 'Excellence', desc: 'We hold ourselves to the highest standards of quality, delivery, and client satisfaction.' },
 ];
 
-const systemsWayItems = [
+const waleecoWayItems = [
   { step: '01', title: 'Discovery', desc: 'Deep-dive into your business challenges, goals, and landscape to frame the right problem.' },
   { step: '02', title: 'Strategy', desc: 'Co-create a transformation roadmap aligned with your strategic priorities and technology landscape.' },
   { step: '03', title: 'Delivery', desc: 'Agile, outcome-driven execution with transparent progress tracking and continuous improvement.' },
@@ -74,7 +74,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
           >
-            Systems Limited is a global technology company that helps enterprises embrace AI, data, digital, and cloud to drive transformative business outcomes across 16+ countries.
+            Waleeco is a global technology company that helps enterprises embrace AI, data, digital, and cloud to drive transformative business outcomes across 16+ countries.
           </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
             <Link to="/contact" className="btn btn-primary btn-lg">
@@ -113,7 +113,7 @@ export default function About() {
                     <div className="section-label"><span>Our Philosophy</span></div>
                     <h2>Driven by purpose,<br />powered by technology</h2>
                     <p>
-                      At Systems Limited, we believe that technology is only as powerful as the human intelligence, creativity, and empathy that drives it. Our philosophy is simple: we exist to help our clients, communities, and people thrive in an era of exponential change.
+                      At Waleeco, we believe that technology is only as powerful as the human intelligence, creativity, and empathy that drives it. Our philosophy is simple: we exist to help our clients, communities, and people thrive in an era of exponential change.
                     </p>
                     <p>
                       We combine deep domain expertise with cutting-edge technology capabilities to deliver transformative outcomes — not just for today, but for the long term. We don't just implement technology; we reimagine the art of the possible.
@@ -173,14 +173,14 @@ export default function About() {
                 transition={{ duration: 0.4 }}
               >
                 <div style={{ maxWidth: 680, marginBottom: 56 }}>
-                  <div className="section-label"><span>The Systems Way</span></div>
+                  <div className="section-label"><span>The Waleeco Way</span></div>
                   <h2 className="display-sm">Our proven approach to transformation</h2>
                   <p style={{ color: 'var(--clr-muted)', fontSize: 15, lineHeight: 1.8, marginTop: 16 }}>
-                    The Systems Way is our delivery philosophy — a structured yet flexible approach that ensures we consistently deliver exceptional outcomes for our clients.
+                    The Waleeco Way is our delivery philosophy — a structured yet flexible approach that ensures we consistently deliver exceptional outcomes for our clients.
                   </p>
                 </div>
                 <div className="readiness-steps" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-                  {systemsWayItems.map((item, i) => (
+                  {waleecoWayItems.map((item, i) => (
                     <motion.div
                       key={item.step}
                       className="readiness-step"
@@ -211,7 +211,7 @@ export default function About() {
                   <div className="section-label"><span>ESG</span></div>
                   <h2 className="display-sm">Committed to a sustainable future</h2>
                   <p style={{ color: 'var(--clr-muted)', fontSize: 15, lineHeight: 1.8, marginTop: 16 }}>
-                    At Systems Limited, we take our responsibility to people, planet, and society seriously. Our ESG commitments shape how we operate, invest, and grow.
+                    At Waleeco, we take our responsibility to people, planet, and society seriously. Our ESG commitments shape how we operate, invest, and grow.
                   </p>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
@@ -345,7 +345,6 @@ export default function About() {
             Be part of a global team transforming industries through AI, data, and digital innovation.
           </p>
           <div className="cta-btns">
-            <Link to="/careers" className="btn btn-primary btn-lg">Explore Careers <FiArrowRight /></Link>
             <Link to="/contact" className="btn btn-outline btn-lg">Contact Us</Link>
           </div>
         </div>

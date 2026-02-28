@@ -11,9 +11,7 @@ import ServiceAI      from './pages/ServiceAI';
 import Industries     from './pages/Industries';
 import IndustryDetail from './pages/IndustryDetail';
 import Insights       from './pages/Insights';
-import Careers        from './pages/Careers';
 import Contact        from './pages/Contact';
-import Investors      from './pages/Investors';
 
 /* ── Scroll to top on every route change ───────────── */
 function ScrollToTop() {
@@ -38,9 +36,7 @@ function Layout() {
           <Route path="/industries"                 element={<Industries />}     />
           <Route path="/industries/:industryId"     element={<IndustryDetail />} />
           <Route path="/insights"                   element={<Insights />}       />
-          <Route path="/careers"                    element={<Careers />}        />
           <Route path="/contact"                    element={<Contact />}        />
-          <Route path="/investors"                  element={<Investors />}      />
           {/* Catch-all → Home */}
           <Route path="*"                           element={<Home />}           />
         </Routes>

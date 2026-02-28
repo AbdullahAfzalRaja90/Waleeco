@@ -240,7 +240,7 @@ export default function ServiceAI() {
       <section className="section" style={{ background: 'var(--clr-bg2)' }}>
         <div className="container">
           <FadeUp>
-            <p className="eyebrow" style={{ marginBottom: 12 }}>Why Systems Limited</p>
+            <p className="eyebrow" style={{ marginBottom: 12 }}>Why Waleeco</p>
             <h2 style={{ fontSize: 'clamp(1.6rem,3.5vw,2.4rem)', fontWeight: 800, marginBottom: 52 }}>
               Why companies trust us for AI
             </h2>

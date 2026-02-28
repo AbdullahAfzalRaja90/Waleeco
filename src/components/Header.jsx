@@ -45,13 +45,7 @@ export default function Header() {
 
           {/* ── Logo ─────────────────────────────────────────── */}
           <Link to="/" className="logo">
-            <div className="logo-icon">
-              <div className="logo-icon-bg">SL</div>
-            </div>
-            <div className="logo-text-wrap">
-              <span className="logo-name">Systems Limited</span>
-              <span className="logo-tagline">Technology Transformation</span>
-            </div>
+            <img src="/MainLogo.png" alt="Waleeco logo" className="logo-img" />
           </Link>
 
           {/* ── Desktop Nav ───────────────────────────────────── */}
@@ -94,22 +88,6 @@ export default function Header() {
                 </li>
               ))}
 
-              {/* Regions */}
-              <li className="nav-item">
-                <button className="nav-link">
-                  <FiGlobe size={13} />
-                  Regions
-                  <FiChevronDown size={12} />
-                </button>
-                <div className="dropdown">
-                  {regions.map((r) => (
-                    <a key={r.label} href={r.href} className="dropdown-link">
-                      <span>{r.flag}</span>
-                      {r.label}
-                    </a>
-                  ))}
-                </div>
-              </li>
             </ul>
           </nav>
 
@@ -167,17 +145,6 @@ export default function Header() {
           </div>
         ))}
 
-        <div style={{ marginTop: 16 }}>
-          {regions.map(r => (
-            <a
-              key={r.label}
-              href={r.href}
-              style={{ display: 'flex', gap: 10, alignItems: 'center', padding: '12px 0', color: 'var(--text-secondary)', fontSize: 14, borderBottom: '1px solid var(--border)' }}
-            >
-              <span>{r.flag}</span>{r.label}
-            </a>
-          ))}
-        </div>
 
         <Link
           to="/contact"
@@ -203,7 +170,7 @@ export default function Header() {
                 <FiX size={20} />
               </button>
             </div>
-            <div className="search-hint">Start typing to search across Systems Limited…</div>
+            <div className="search-hint">Start typing to search across Waleeco…</div>
           </div>
         </div>
       )}

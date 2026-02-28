@@ -95,19 +95,6 @@ export default function Home() {
         <div className="hero-content">
           <div className="container">
             <div className="hero-content-inner">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`badge-${slide}`}
-                  className="hero-badge"
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <span className="hero-badge-dot" />
-                  Enterprise Software Solutions
-                </motion.div>
-              </AnimatePresence>
 
               <AnimatePresence mode="wait">
                 <motion.h1
@@ -411,7 +398,7 @@ export default function Home() {
           >
             <span className="quote-mark-lg">"</span>
             <p className="quote-body">
-              Systems Limited's ability to deliver on large-scale projects is second to none.
+              Waleeco's ability to deliver on large-scale projects is second to none.
               Their team seamlessly integrated with ours, and we went live in under six months —
               a feat that seemed impossible before our partnership began.
             </p>
@@ -439,7 +426,7 @@ export default function Home() {
                 your future?
               </h2>
               <p className="cta-body">
-                Join 300+ enterprise clients who trust Systems Limited to deliver complex technology transformations — on time, on budget, with measurable ROI.
+                Join 300+ enterprise clients who trust Waleeco to deliver complex technology transformations — on time, on budget, with measurable ROI.
               </p>
               <div className="cta-actions">
                 <Link to="/contact" className="btn btn-primary btn-xl">Get started <FiArrowRight /></Link>

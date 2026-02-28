@@ -152,7 +152,7 @@ export default function Services() {
         <div className="container cta-content">
           <h2 className="cta-title">Start your transformation</h2>
           <p className="cta-subtitle">
-            Let's discuss how Systems Limited can accelerate your digital transformation journey.
+            Let's discuss how Waleeco can accelerate your digital transformation journey.
           </p>
           <div className="cta-btns">
             <Link to="/contact" className="btn btn-primary btn-lg">Get in Touch <FiArrowRight /></Link>

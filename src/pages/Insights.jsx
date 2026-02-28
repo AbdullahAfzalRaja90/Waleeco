@@ -132,7 +132,7 @@ export default function Insights() {
           <div style={{ maxWidth: 820, margin: '0 auto', textAlign: 'center' }}>
             <div style={{ fontSize: '4rem', color: 'var(--clr-primary)', lineHeight: 1, marginBottom: 24 }}>"</div>
             <p style={{ fontSize: 'clamp(1.1rem,2vw,1.4rem)', lineHeight: 1.7, color: 'rgba(255,255,255,0.85)', marginBottom: 32 }}>
-              Systems Limited's ability to deliver on large-scale projects is second to none.
+              Waleeco's ability to deliver on large-scale projects is second to none.
               Their industry-savvy business consultants and technical team's open, responsive and
               highly professional approach helped us go live in under six months.
             </p>

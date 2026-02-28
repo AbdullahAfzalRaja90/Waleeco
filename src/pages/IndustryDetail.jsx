@@ -171,12 +171,12 @@ export default function IndustryDetail() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 'clamp(40px,6vw,80px)', alignItems: 'center' }}>
             <div>
-              <div className="section-label"><span>Why Systems Limited</span></div>
+              <div className="section-label"><span>Why Waleeco</span></div>
               <h2 className="display-sm" style={{ marginBottom: 24 }}>
                 A partner you can trust for the long run
               </h2>
               <p style={{ color: 'var(--clr-muted)', fontSize: 14, lineHeight: 1.8 }}>
-                With 48+ years of technology leadership and deep expertise in {industry.title.toLowerCase()}, Systems Limited delivers outcomes that create lasting competitive advantage.
+                With 48+ years of technology leadership and deep expertise in {industry.title.toLowerCase()}, Waleeco delivers outcomes that create lasting competitive advantage.
               </p>
               <Link to="/contact" className="btn btn-primary" style={{ marginTop: 32 }}>
                 Talk to an Expert <FiArrowRight />
