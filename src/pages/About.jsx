@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiLinkedin, FiArrowRight, FiAward, FiUsers, FiHeart, FiTarget, FiGlobe, FiStar } from 'react-icons/fi';
-import { leadership, awards, offices } from '../data/siteData';
+import { FiArrowRight, FiAward, FiUsers, FiHeart, FiTarget, FiGlobe, FiStar } from 'react-icons/fi';
 
 const tabs = [
   { id: 'philosophy', label: 'OUR PHILOSOPHY' },
@@ -20,6 +19,24 @@ const coreValues = [
   { icon: <FiAward size={20} />, title: 'Excellence', desc: 'We hold ourselves to the highest standards of quality, delivery, and client satisfaction.' },
 ];
 
+const philosophyPillars = [
+  {
+    title: 'Integrity',
+    desc: 'Dependable, honest, and transparent in every client relationship.',
+    icon: <FiStar size={18} />,
+  },
+  {
+    title: 'Innovation',
+    desc: 'Bold ideas, practical execution, and technology that creates value.',
+    icon: <FiTarget size={18} />,
+  },
+  {
+    title: 'Dedication',
+    desc: 'Precise delivery and long-term commitment to customer success.',
+    icon: <FiAward size={18} />,
+  },
+];
+
 const waleecoWayItems = [
   { step: '01', title: 'Discovery', desc: 'Deep-dive into your business challenges, goals, and landscape to frame the right problem.' },
   { step: '02', title: 'Strategy', desc: 'Co-create a transformation roadmap aligned with your strategic priorities and technology landscape.' },
@@ -32,8 +49,6 @@ const esgPillars = [
   { icon: '🤝', title: 'Social', desc: 'Investing in communities through education initiatives, STEM programs, and promoting diversity and inclusion across all levels.' },
   { icon: '⚖️', title: 'Governance', desc: 'Maintaining the highest standards of corporate governance, data privacy, ethics, and regulatory compliance globally.' },
 ];
-
-const awardIcons = ['🏆', '🥇', '⭐', '🏅', '🎖️', '✨'];
 
 export default function About() {
   const [activeTab, setActiveTab] = useState('philosophy');
@@ -74,7 +89,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
           >
-            Waleeco is a global technology company that helps enterprises embrace AI, data, digital, and cloud to drive transformative business outcomes across 16+ countries.
+            Waleeco is a global technology company that helps enterprises embrace AI, data, digital, and cloud to drive transformative business outcomes across 3+ countries.
           </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
             <Link to="/contact" className="btn btn-primary btn-lg">
@@ -113,23 +128,56 @@ export default function About() {
                     <div className="section-label"><span>Our Philosophy</span></div>
                     <h2>Driven by purpose,<br />powered by technology</h2>
                     <p>
-                      At Waleeco, we believe that technology is only as powerful as the human intelligence, creativity, and empathy that drives it. Our philosophy is simple: we exist to help our clients, communities, and people thrive in an era of exponential change.
-                    </p>
-                    <p>
-                      We combine deep domain expertise with cutting-edge technology capabilities to deliver transformative outcomes — not just for today, but for the long term. We don't just implement technology; we reimagine the art of the possible.
-                    </p>
-                    <p>
-                      For over four decades, we've been a trusted partner to enterprises across banking, telecom, government, health, and retail sectors — helping them navigate disruption, seize opportunity, and build lasting competitive advantage.
+                      We dedicatedly master the power of technology in bespoke ways for our customers, guided by three core values: integrity, innovation, and dedication. At Waleeco, we combine deep domain expertise with cutting-edge capabilities to help clients, communities, and teams thrive through change while building trusted partnerships that deliver outcomes designed to last.
                     </p>
                     <Link to="/contact" className="btn btn-primary" style={{ marginTop: 24 }}>
                       Partner with Us <FiArrowRight />
                     </Link>
                   </div>
-                  <img
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=80"
-                    alt="Our Philosophy"
-                    className="philosophy-img"
-                  />
+                  <div className="philosophy-visual">
+                    <img
+                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&q=80"
+                      alt="Our Philosophy"
+                      className="philosophy-img"
+                    />
+                    <div className="philosophy-badge">
+                      <span className="philosophy-badge-label">Trusted for 3+ years</span>
+                      <span className="philosophy-badge-sub">Human-led. Technology-powered.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="philosophy-values-section">
+                  <div className="philosophy-values-shell">
+                    <div className="section-label"><span>Our Core Values</span></div>
+                    <h3 className="philosophy-values-title">Integrity, innovation, and dedication guide every engagement</h3>
+                    <p className="philosophy-values-copy">
+                      These three values shape how we think, build, and deliver for every client relationship.
+                    </p>
+                    <div className="philosophy-pillars">
+                      {philosophyPillars.map((pillar) => (
+                        <div className="philosophy-pillar" key={pillar.title}>
+                          <div className="philosophy-pillar-icon">{pillar.icon}</div>
+                          <div>
+                            <div className="philosophy-pillar-title">{pillar.title}</div>
+                            <div className="philosophy-pillar-desc">{pillar.desc}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="philosophy-values-cta">
+                      <div>
+                        <div className="philosophy-values-cta-kicker">Join 300+ changemakers</div>
+                        <div className="philosophy-values-cta-copy">
+                          Be part of a global team transforming industries through AI, data, and digital innovation.
+                        </div>
+                      </div>
+                      <Link to="/contact" className="btn btn-primary btn-lg philosophy-values-cta-btn">
+                        Contact Us <FiArrowRight />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -235,120 +283,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── LEADERSHIP ────────────────────────────────────────── */}
-      <section className="leadership-section" id="leadership">
-        <div className="container">
-          <div style={{ marginBottom: 48 }}>
-            <div className="section-label"><span>Our Leadership</span></div>
-            <h2 className="display-md">The team behind the vision</h2>
-          </div>
-          <div className="leadership-grid">
-            {leadership.map((person, i) => (
-              <motion.div
-                key={person.name}
-                className="leader-card"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ delay: (i % 4) * 0.1 }}
-              >
-                <div className="leader-img-wrap">
-                  <img src={person.img} alt={person.name} className="leader-img" loading="lazy" />
-                  <div className="leader-overlay" />
-                </div>
-                <div className="leader-info">
-                  <h3 className="leader-name">{person.name}</h3>
-                  <p className="leader-role">{person.title}</p>
-                  {person.linkedin && (
-                    <a
-                      href={person.linkedin}
-                      className="leader-li"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${person.name} on LinkedIn`}
-                    >
-                      <FiLinkedin size={15} />
-                    </a>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── AWARDS ────────────────────────────────────────────── */}
-      <section className="awards-section">
-        <div className="container">
-          <div style={{ marginBottom: 48 }}>
-            <div className="section-label"><span>Recognition</span></div>
-            <h2 className="display-md">Awards & accolades</h2>
-          </div>
-          <div className="awards-grid">
-            {awards.map((award, i) => (
-              <motion.div
-                key={award.title}
-                className="award-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ delay: (i % 4) * 0.08 }}
-              >
-                <div className="award-icon">{awardIcons[i % awardIcons.length]}</div>
-                <h3 className="award-title">{award.title}</h3>
-                {award.sub && <p className="award-sub">{award.sub}</p>}
-                {award.year && <span className="award-year">{award.year}</span>}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── OFFICES ───────────────────────────────────────────── */}
-      <section className="offices-section">
-        <div className="container">
-          <div style={{ marginBottom: 48 }}>
-            <div className="section-label"><span>Global Presence</span></div>
-            <h2 className="display-md">Operating across 16+ countries</h2>
-            <p style={{ color: 'var(--clr-muted)', fontSize: 15, maxWidth: 560, marginTop: 16, lineHeight: 1.8 }}>
-              From our headquarters in Islamabad to delivery centers across Asia, the Middle East, Africa, and beyond — we're wherever our clients need us.
-            </p>
-          </div>
-          <div className="offices-grid">
-            {offices.map((office, i) => (
-              <motion.div
-                key={office.city}
-                className="office-card"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ delay: (i % 4) * 0.07 }}
-              >
-                <div className="office-flag">{
-                  { Pakistan: '🇵🇰', UAE: '🇦🇪', Egypt: '🇪🇬', Qatar: '🇶🇦', 'South Africa': '🇿🇦', Kenya: '🇰🇪', UK: '🇬🇧', Malaysia: '🇲🇾', Singapore: '🇸🇬' }[office.country] || '🌍'
-                }</div>
-                {office.city.includes('HQ') && <div className="office-hq-badge">Headquarters</div>}
-                <h3 className="office-city">{office.city}</h3>
-                <p className="office-country">{office.country}</p>
-                {office.address && <p className="office-address">{office.address}</p>}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ───────────────────────────────────────────────── */}
-      <section className="cta-section">
-        <div className="container cta-content">
-          <h2 className="cta-title">Join 7,700+ changemakers</h2>
-          <p className="cta-subtitle">
-            Be part of a global team transforming industries through AI, data, and digital innovation.
-          </p>
-          <div className="cta-btns">
-            <Link to="/contact" className="btn btn-outline btn-lg">Contact Us</Link>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

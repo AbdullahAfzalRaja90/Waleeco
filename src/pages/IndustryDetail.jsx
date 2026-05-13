@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiCheck } from 'react-icons/fi';
-import { industries, insights } from '../data/siteData';
+import { industries } from '../data/siteData';
 
 export default function IndustryDetail() {
   const { industryId } = useParams();
@@ -23,8 +23,6 @@ export default function IndustryDetail() {
       </main>
     );
   }
-
-  const relatedInsights = insights.slice(0, 3);
 
   return (
     <main>
@@ -67,8 +65,8 @@ export default function IndustryDetail() {
             <Link to="/contact" className="btn btn-primary btn-lg">
               Talk to an Expert <FiArrowRight />
             </Link>
-            <Link to="/insights" className="btn btn-outline btn-lg">
-              Read Insights
+            <Link to="/services" className="btn btn-outline btn-lg">
+              Explore Services
             </Link>
           </motion.div>
         </div>
@@ -206,46 +204,6 @@ export default function IndustryDetail() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── RELATED INSIGHTS ─────────────────────────────────── */}
-      <section className="insights-section">
-        <div className="container">
-          <div className="insights-header">
-            <div>
-              <div className="section-label"><span>Insights</span></div>
-              <h2 className="display-sm">Related perspectives</h2>
-            </div>
-            <Link to="/insights" className="btn btn-ghost">All Insights <FiArrowRight /></Link>
-          </div>
-          <div className="insights-grid">
-            {relatedInsights.map((ins, i) => (
-              <motion.article
-                key={ins.id}
-                className="insight-card"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="insight-card-img-wrap">
-                  <img src={ins.img} alt={ins.title} className="insight-card-img" loading="lazy" />
-                </div>
-                <div className="insight-card-body">
-                  <span className="insight-tag">{ins.tag}</span>
-                  <h3 className="insight-card-title">{ins.title}</h3>
-                  <p className="insight-card-excerpt">{ins.excerpt}</p>
-                  <div className="insight-card-meta">
-                    <span className="insight-card-date">{ins.date}</span>
-                    <Link to={`/insights/${ins.id}`} className="insight-read-more">
-                      Read more <FiArrowRight size={11} />
-                    </Link>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
           </div>
         </div>
       </section>

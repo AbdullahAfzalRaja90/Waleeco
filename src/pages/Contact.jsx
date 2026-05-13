@@ -14,46 +14,11 @@ function FadeUp({ children, delay = 0 }) {
 
 const OFFICES = [
   {
-    city: 'Islamabad (HQ)',
+    city: 'Islamabad',
     country: 'Pakistan',
     address: '3rd Floor, Evacuee Trust Complex, F-5/1, Islamabad',
-    phone: '+92 51 111 797 836',
+    phone: '+92 312 5612116',
     email: 'info@waleeco.com',
-  },
-  {
-    city: 'Karachi',
-    country: 'Pakistan',
-    address: 'Suite 1001, 10th Floor, Lakson Square Building No. 3, Sarwar Shaheed Road, Karachi',
-    phone: '+92 21 111 797 836',
-    email: 'info@waleeco.com',
-  },
-  {
-    city: 'Dubai',
-    country: 'UAE',
-    address: 'Office 1901, Level 19, Boulevard Plaza Tower 1, Downtown Dubai',
-    phone: '+971 4 123 4567',
-    email: 'uae@waleeco.com',
-  },
-  {
-    city: 'London',
-    country: 'United Kingdom',
-    address: '1 Canada Square, Canary Wharf, London E14 5AB',
-    phone: '+44 20 1234 5678',
-    email: 'uk@waleeco.com',
-  },
-  {
-    city: 'Doha',
-    country: 'Qatar',
-    address: 'West Bay Business Centre, Doha',
-    phone: '+974 44 123 456',
-    email: 'qatar@waleeco.com',
-  },
-  {
-    city: 'Riyadh',
-    country: 'Saudi Arabia',
-    address: 'King Fahd Road, Al Olaya District, Riyadh',
-    phone: '+966 11 234 5678',
-    email: 'ksa@waleeco.com',
   },
 ];
 
@@ -89,12 +54,13 @@ export default function Contact() {
       </section>
 
       {/* ── FORM + OFFICES ──────────────────────────────────── */}
-      <section className="section" style={{ background: 'var(--clr-bg)' }}>
+      <section className="contact-section section">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: 64, alignItems: 'start' }}>
+          <div className="contact-grid">
 
             {/* ── Contact Form */}
             <FadeUp>
+              <div className="contact-form-panel">
               <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: 8 }}>Send us a message</h2>
               <p style={{ color: 'var(--clr-text-muted)', marginBottom: 36, fontSize: '0.95rem' }}>
                 Fill in the form and a member of our team will be in touch within one business day.
@@ -144,34 +110,46 @@ export default function Contact() {
                   </button>
                 </form>
               )}
+              </div>
             </FadeUp>
 
             {/* ── Office Info */}
-            <div>
+            <div className="contact-office-column">
               <FadeUp delay={0.15}>
-                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: 8 }}>Our offices</h2>
-                <p style={{ color: 'var(--clr-text-muted)', marginBottom: 32, fontSize: '0.9rem' }}>
-                  Presence across Pakistan, Middle East, UK, Africa and Southeast Asia.
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <div className="contact-office-header">
+                  <div className="contact-office-kicker">Our office</div>
+                  <h2>Islamabad</h2>
+                  <p>Our main point of contact for partnerships, delivery, and support.</p>
+                </div>
+                <div className="contact-office-list">
                   {OFFICES.map((office, i) => (
                     <motion.div key={i}
+                      className="contact-office-card"
                       initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                      style={{ padding: '22px 24px', background: 'var(--clr-surface)', border: '1px solid var(--clr-border)', borderRadius: 10 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                        <FiMapPin style={{ color: 'var(--clr-primary)', flexShrink: 0 }} />
+                    >
+                      <div className="contact-office-card-top">
+                        <div className="contact-office-icon-wrap">
+                          <FiMapPin className="contact-office-icon" />
+                        </div>
                         <div>
-                          <span style={{ fontWeight: 700, fontSize: '0.95rem' }}>{office.city}</span>
-                          <span style={{ color: 'var(--clr-text-muted)', fontSize: '0.8rem', marginLeft: 8 }}>{office.country}</span>
+                          <div className="contact-office-city-row">
+                            <span className="contact-office-city">{office.city}</span>
+                            <span className="contact-office-country">{office.country}</span>
+                          </div>
+                          <div className="contact-office-badges">
+                            <span>HQ</span>
+                            <span>By appointment</span>
+                            <span>Mon-Fri</span>
+                          </div>
                         </div>
                       </div>
-                      <p style={{ fontSize: '0.82rem', color: 'var(--clr-text-muted)', lineHeight: 1.5, paddingLeft: 24, marginBottom: 4 }}>{office.address}</p>
-                      <div style={{ paddingLeft: 24, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-                        <a href={`tel:${office.phone}`} style={{ fontSize: '0.78rem', color: 'var(--clr-text-dim)', display: 'flex', alignItems: 'center', gap: 4, textDecoration: 'none' }}>
+                      <p className="contact-office-address">{office.address}</p>
+                      <div className="contact-office-links">
+                        <a href={`tel:${office.phone}`} className="contact-office-link">
                           <FiPhone size={11} />{office.phone}
                         </a>
-                        <a href={`mailto:${office.email}`} style={{ fontSize: '0.78rem', color: 'var(--clr-primary)', display: 'flex', alignItems: 'center', gap: 4, textDecoration: 'none' }}>
+                        <a href={`mailto:${office.email}`} className="contact-office-link primary">
                           <FiMail size={11} />{office.email}
                         </a>
                       </div>

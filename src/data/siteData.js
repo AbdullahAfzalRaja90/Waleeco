@@ -8,37 +8,27 @@ export const heroSlides = [
   {
     id: 1,
     eyebrow: '',
-    titleLine1: 'We',
-    titleLine2: 'reimagine',
-    titleLine3: 'tomorrow',
-    subtitle: 'Driving growth and molding the future through transformative change',
-    cta: 'GET IN TOUCH',
+    titleLine1: 'AI Powered',
+    titleLine2: 'Business Focus',
+    titleLine3: '',
+    subtitle: '',
+    cta: 'LEARN MORE',
     ctaLink: '/contact',
+    videoSrc: '/Waleeco/video%202.mp4',
     bg: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80',
     accent: '#e63329',
   },
   {
     id: 2,
     eyebrow: '',
-    titleLine1: 'AI that dares',
-    titleLine2: 'to disrupt',
+    titleLine1: 'Built for',
+    titleLine2: 'modern business',
     titleLine3: '',
-    subtitle: 'Hyper-personalization at the pace of your thoughts',
-    cta: 'LEARN MORE',
-    ctaLink: '/services/ai-transformation',
-    bg: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1600&q=80',
-    accent: '#e63329',
-  },
-  {
-    id: 3,
-    eyebrow: '',
-    titleLine1: 'Driving innovation',
-    titleLine2: 'and improving lives',
-    titleLine3: 'with AI-driven intelligence',
     subtitle: '',
     cta: 'LEARN MORE',
-    ctaLink: '/services',
-    bg: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1600&q=80',
+    ctaLink: '/services/ai-transformation',
+    videoSrc: '/Waleeco/video%201.mp4',
+    bg: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1600&q=80',
     accent: '#e63329',
   },
 ];
@@ -78,12 +68,160 @@ export const services = [
   },
 ];
 
+// ── SERVICE CATALOG (homepage + services page cards) ──────────
+export const serviceCatalog = [
+  {
+    id: 'web-platforms',
+    title: 'Custom Web Platforms',
+    category: 'Web Development',
+    blurb: 'Build scalable web applications, portals, and dashboards tailored to your business workflows.',
+    link: '/services/web-platforms',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80',
+  },
+  {
+    id: 'frontend-web',
+    title: 'Frontend Engineering',
+    category: 'Web Development',
+    blurb: 'Create fast, accessible, and conversion-focused interfaces with modern frontend frameworks.',
+    link: '/services/frontend-web',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80',
+  },
+  {
+    id: 'backend-web',
+    title: 'Backend & API Development',
+    category: 'Web Development',
+    blurb: 'Design secure APIs, business logic, and integrations that power reliable digital products.',
+    link: '/services/backend-web',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=900&q=80',
+  },
+  {
+    id: 'ios-android-apps',
+    title: 'iOS & Android Apps',
+    category: 'App Development',
+    blurb: 'Develop polished mobile apps with strong performance, offline support, and secure architecture.',
+    link: '/services/ios-android-apps',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&q=80',
+  },
+  {
+    id: 'cross-platform-apps',
+    title: 'Cross-Platform Apps',
+    category: 'App Development',
+    blurb: 'Launch shared-codebase applications for faster delivery across mobile ecosystems.',
+    link: '/services/cross-platform-apps',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80',
+  },
+  {
+    id: 'app-modernization',
+    title: 'App Modernization',
+    category: 'App Development',
+    blurb: 'Refactor and modernize legacy apps to improve usability, stability, and release speed.',
+    link: '/services/app-modernization',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=900&q=80',
+  },
+  {
+    id: 'ux-research',
+    title: 'UX Research & Strategy',
+    category: 'UI/UX Design',
+    blurb: 'Validate user needs and design direction with research-led product strategy and testing.',
+    link: '/services/ux-research',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80',
+  },
+  {
+    id: 'ui-design-system',
+    title: 'UI Design Systems',
+    category: 'UI/UX Design',
+    blurb: 'Create reusable component systems and visual standards for consistent digital products.',
+    link: '/services/ui-design-system',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=900&q=80',
+  },
+  {
+    id: 'product-prototyping',
+    title: 'Product Prototyping',
+    category: 'UI/UX Design',
+    blurb: 'Turn concepts into validated prototypes before full-scale engineering investment.',
+    link: '/services/product-prototyping',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=900&q=80',
+  },
+  {
+    id: 'desktop-enterprise',
+    title: 'Enterprise Desktop Apps',
+    category: 'Desktop Development',
+    blurb: 'Build secure and high-performance desktop software for operational and enterprise teams.',
+    link: '/services/desktop-enterprise',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&q=80',
+  },
+  {
+    id: 'desktop-modernization',
+    title: 'Desktop App Modernization',
+    category: 'Desktop Development',
+    blurb: 'Upgrade legacy desktop software with modern UX, architecture, and maintainability.',
+    link: '/services/desktop-modernization',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80',
+  },
+  {
+    id: 'desktop-integration',
+    title: 'Desktop Integrations',
+    category: 'Desktop Development',
+    blurb: 'Integrate desktop tools with APIs, ERPs, and internal systems for seamless operations.',
+    link: '/services/desktop-integration',
+    parent: 'digital',
+    image: 'https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=900&q=80',
+  },
+];
+
+// ── SERVICE LINES (focused domain offerings) ──────────────────
+export const serviceLines = [
+  {
+    id: 'web-development',
+    title: 'Web Development',
+    desc: 'From marketing sites to enterprise web platforms, we build secure, scalable, and high-performing web experiences.',
+    link: '/services/web-development',
+    color: '#0ea5e9',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900&q=80',
+  },
+  {
+    id: 'app-development',
+    title: 'App Development',
+    desc: 'We design and engineer native and cross-platform mobile apps with robust architecture and smooth user journeys.',
+    link: '/services/app-development',
+    color: '#10b981',
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&q=80',
+  },
+  {
+    id: 'ui-ux-design',
+    title: 'UI/UX Design',
+    desc: 'Our design teams create intuitive interfaces, thoughtful interaction patterns, and consistent design systems.',
+    link: '/services/ui-ux-design',
+    color: '#7c3aed',
+    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=900&q=80',
+  },
+  {
+    id: 'desktop-development',
+    title: 'Desktop Development',
+    desc: 'We deliver modern desktop applications for business-critical workflows, including upgrades for legacy desktop systems.',
+    link: '/services/desktop-development',
+    color: '#f59e0b',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80',
+  },
+];
+
 // ── STATS (homepage counters) ──────────────────────────────────
 export const stats = [
-  { number: 48, suffix: '+', label: 'Years of continual excellence' },
-  { number: 7700, suffix: '+', label: 'Change makers driving revolution' },
-  { number: 16, suffix: '+', label: 'Countries with our presence and clientele' },
-  { number: 300, suffix: '+', label: 'Active clients across the globe' },
+  { number: 3, suffix: '+', label: 'Years of continual excellence' },
+  { number: 30, suffix: '+', label: 'Change makers driving revolution' },
+  { number: 3, suffix: '+', label: 'Countries with our presence and clientele' },
+  { number: 5, suffix: '+', label: 'Active clients across the globe' },
 ];
 
 // ── PARTNERS (exact companies from site) ──────────────────────
@@ -92,111 +230,6 @@ export const partners = [
   'Salesforce', 'Cloudera', 'Leapwork', 'Atlassian', 'Informatica',
   'Formpipe', 'Sprinklr', 'Oracle', 'Red Hat', 'Google Cloud',
   'ServiceNow', 'MuleSoft', 'Databricks',
-];
-
-// ── FEATURED INSIGHTS (real articles from homepage) ───────────
-export const insights = [
-  {
-    id: 1,
-    type: 'NEWSROOM',
-    title: 'Waleeco acquires Confiz to expand its global presence in North America and Europe',
-    excerpt: 'Waleeco has acquired Confiz, strengthening its presence in key global markets and expanding its data, cloud, and AI modernization capabilities, especially in Retail and CPG.',
-    img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80',
-    link: '/insights',
-  },
-  {
-    id: 2,
-    type: 'NEWSROOM',
-    title: 'Waleeco achieves the 2025-2026 Microsoft AI Business Solutions Inner Circle award',
-    excerpt: 'Waleeco recognized in Microsoft Inner Circle 2025–2026 for AI Business Solutions, honoring top-tier sales performance and innovation in delivering impactful AI solutions.',
-    img: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?w=600&q=80',
-    link: '/insights',
-  },
-  {
-    id: 3,
-    type: 'NEWSROOM',
-    title: 'Waleeco Recognized as "Aspirant" for Banking IT Services in Everest Group\'s PEAK Matrix® Assessment',
-    excerpt: 'Waleeco has earned "Aspirant" recognition in Everest Group\'s PEAK Matrix® 2025 for Banking IT Services, highlighting its banking transformation capabilities.',
-    img: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80',
-    link: '/insights',
-  },
-  {
-    id: 4,
-    type: 'NEWSROOM',
-    title: 'Bank ABC\'s ila Bank Goes Live with Temenos Core on AWS, Implemented by Waleeco',
-    excerpt: 'ila Bank, powered by Bank ABC, has migrated to Temenos\' cloud-native Core Banking and Payments platform on AWS, delivered by Waleeco, to boost agility and scalability.',
-    img: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80',
-    link: '/insights',
-  },
-  {
-    id: 5,
-    type: 'BLOG',
-    title: 'Empowering the enterprise: AI enablement through enterprise architecture',
-    excerpt: 'AI is reshaping industries today. Organizations using it gain faster decisions, efficiency, and an edge. Enterprise Architects ensure AI aligns with business strategy and drives real value.',
-    img: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80',
-    link: '/insights',
-  },
-  {
-    id: 6,
-    type: 'CASE STUDY',
-    title: 'Enhancing enterprise mobility through customer-inclusive app',
-    excerpt: 'Systems\' mobile app lets customers manage accounts and transactions with 24/7 support. With over 2 million downloads, its simple, secure interface drives success.',
-    img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80',
-    link: '/insights',
-  },
-];
-
-// ── ALL INSIGHTS (insights page) ──────────────────────────────
-export const allInsights = [
-  ...insights,
-  {
-    id: 7,
-    type: 'BLOG',
-    title: '5 trends that are shaping the telco industry in 2023',
-    excerpt: 'The telco landscape is evolving rapidly. Here are five key trends CSPs must embrace to stay competitive in the digital era.',
-    img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80',
-    link: '/insights',
-  },
-  {
-    id: 8,
-    type: 'BLOG',
-    title: 'Embracing the era of digital retail: Redefining the norm',
-    excerpt: 'Empowering salespeople with data insights to boost revenue while maintaining customer relationships in the modern retail landscape.',
-    img: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80',
-    link: '/insights',
-  },
-  {
-    id: 9,
-    type: 'BLOG',
-    title: 'Unified commerce: Your lifeline for the next era of retail shopping',
-    excerpt: 'Excel in new era of retail and stand out from competition by embracing omnichannel strategies that unify the customer experience.',
-    img: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&q=80',
-    link: '/insights',
-  },
-  {
-    id: 10,
-    type: 'NEWSROOM',
-    title: 'Techvista attends GITEX, brings home value-driven business insights',
-    excerpt: 'Waleeco\'s Techvista team attended GITEX 2024, engaging with global technology leaders and returning with transformative insights.',
-    img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80',
-    link: '/insights',
-  },
-  {
-    id: 11,
-    type: 'CASE STUDY',
-    title: 'Leading telco improves lead nurturing through an automated LMS',
-    excerpt: 'Capitalized on potential opportunities in a proactive manner through AI-driven lead management and automated workflows.',
-    img: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=80',
-    link: '/insights',
-  },
-  {
-    id: 12,
-    type: 'WHITEPAPER',
-    title: 'The essential requirement: Telco transformation in the digital age',
-    excerpt: 'A comprehensive analysis of the technology imperatives for communications service providers navigating the digital transformation journey.',
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-    link: '/insights',
-  },
 ];
 
 // ── INDUSTRIES (homepage + industries page) ───────────────────
@@ -374,7 +407,7 @@ export const awards = [
 
 // ── GLOBAL OFFICES (exact from company-overview) ───────────────
 export const offices = [
-  { city: 'Islamabad (HQ)', country: 'Pakistan', address: 'Evacuee Trust Complex, Agha Khan Road, F-5/1, Islamabad', phone: '+92 51 111 797 836' },
+  { city: 'Islamabad', country: 'Pakistan', address: 'Evacuee Trust Complex, Agha Khan Road, F-5/1, Islamabad', phone: '+92 312 5612116' },
   { city: 'Karachi', country: 'Pakistan', address: 'Suite 1001, 10th Floor, Lakson Square Building No.3, Sarwar Shaheed Road', phone: '+92 21 111 797 836' },
   { city: 'Lahore', country: 'Pakistan', address: '72-C, E/1, Gulberg III, Lahore', phone: '+92 42 111 797 836' },
   { city: 'Multan', country: 'Pakistan', address: '2nd Floor, Khawaja Ramzan Plaza, Chungi No.9, Multan', phone: '' },
@@ -570,39 +603,12 @@ export const navData = [
     label: 'Services',
     children: [
       {
-        group: 'Digital',
+        group: 'Core Services',
         links: [
-          { label: 'Digital Consulting & Strategy', href: '/services/digital' },
-          { label: 'Digital Commerce', href: '/services/digital' },
-          { label: 'Business Applications', href: '/services/digital' },
-        ],
-      },
-      {
-        group: 'Data & Analytics',
-        links: [
-          { label: 'Data Modernization', href: '/services/data' },
-          { label: 'Advanced Analytics', href: '/services/data' },
-          { label: 'Connected Intelligence', href: '/services/data' },
-          { label: 'Data Management', href: '/services/data' },
-          { label: 'Generative AI', href: '/services/ai-transformation' },
-        ],
-      },
-      {
-        group: 'Cloud',
-        links: [
-          { label: 'Cloud Operations & Migration', href: '/services/cloud' },
-          { label: 'Cloud Applications Development & Integrations', href: '/services/cloud' },
-          { label: 'Managed Services', href: '/services/cloud' },
-        ],
-      },
-      {
-        group: 'AI Transformation',
-        links: [
-          { label: 'AI Transformation', href: '/services/ai-transformation' },
-          { label: 'Digital Infrastructure Services', href: '/services/digital' },
-          { label: 'Security', href: '/services' },
-          { label: 'Emerging Technologies', href: '/services' },
-          { label: 'Business Process Services', href: '/services' },
+          { label: 'Web Development', href: '/services/web-development', icon: '💻' },
+          { label: 'App Development', href: '/services/app-development', icon: '📱' },
+          { label: 'UI/UX Design', href: '/services/ui-ux-design', icon: '🎨' },
+          { label: 'Desktop Development', href: '/services/desktop-development', icon: '🖥️' },
         ],
       },
     ],
@@ -613,56 +619,18 @@ export const navData = [
       {
         group: 'Industries',
         links: [
-          { label: 'Banking & Financial Services', href: '/industries/banking' },
-          { label: 'Communications', href: '/industries/communication' },
-          { label: 'Public Sector', href: '/industries/public-sector' },
-          { label: 'Health', href: '/industries/health' },
-          { label: 'Retail', href: '/industries/retail' },
+          { label: 'Banking & Financial Services', href: '/industries/banking', icon: '🏦' },
+          { label: 'Communications', href: '/industries/communication', icon: '📡' },
+          { label: 'Public Sector', href: '/industries/public-sector', icon: '🏛️' },
+          { label: 'Health', href: '/industries/health', icon: '⚕️' },
+          { label: 'Retail', href: '/industries/retail', icon: '🛍️' },
         ],
       },
     ],
   },
-  { label: 'Insights', href: '/insights' },
   {
     label: 'About',
-    children: [
-      {
-        group: 'About',
-        links: [
-          { label: 'Company Overview', href: '/about' },
-          { label: 'Our Leadership', href: '/about#leadership' },
-          { label: 'Global Presence', href: '/about#global' },
-          { label: 'ESG', href: '/about#esg' },
-        ],
-      },
-    ],
+    href: '/about',
   },
 ];
 
-// ── CHRONICLES OF CHANGE (Insights page) ──────────────────────
-export const chronicles = [
-  {
-    label: 'BLOG',
-    title: 'Embracing the era of digital retail: Redefining the norm',
-    sub: 'Empowering salespeople with data insights to boost revenue while maintaining customer relationship',
-    link: '/insights',
-  },
-  {
-    label: 'BLOG',
-    title: 'Unified commerce: Your lifeline for the next era of retail shopping',
-    sub: 'Excel in new era of retail and stand out from competition by embracing omnichannel',
-    link: '/insights',
-  },
-  {
-    label: 'CASE STUDY',
-    title: 'Telco operator fine-tunes its customer relationship',
-    sub: 'Automated business operations and unified business interactions to ensure quick resolutions and enhanced customer experience',
-    link: '/insights',
-  },
-  {
-    label: 'BLOG',
-    title: '5 ways integrated operations support dynamics eCommerce',
-    sub: 'Simplify the operations necessary to run a successful retail business, both online and in-store',
-    link: '/insights',
-  },
-];

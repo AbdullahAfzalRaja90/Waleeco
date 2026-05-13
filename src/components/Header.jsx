@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FiChevronDown, FiSearch, FiX, FiGlobe, FiArrowRight } from 'react-icons/fi';
 import { navData } from '../data/siteData';
 
@@ -16,8 +16,11 @@ export default function Header() {
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [searchOpen, setSearchOpen]     = useState(false);
   const [expandedMobile, setExpanded]   = useState(null);
+  const [searchQuery, setSearchQuery]   = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   const searchRef  = useRef(null);
   const location   = useLocation();
+  const navigate   = useNavigate();
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 24);
@@ -36,6 +39,55 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
+  // Search filtering logic
+  useEffect(() => {
+    if (searchQuery.trim() === '') {
+      setSearchResults([]);
+      return;
+    }
+
+    const query = searchQuery.toLowerCase();
+    const results = [];
+
+    // Search through navigation items
+    navData.forEach((item) => {
+      // Check main label
+      if (item.label.toLowerCase().includes(query)) {
+        results.push({
+          type: 'page',
+          title: item.label,
+          href: item.href,
+          category: 'Pages',
+        });
+      }
+
+      // Check children (services and industries)
+      if (item.children) {
+        item.children.forEach((group) => {
+          group.links.forEach((link) => {
+            if (link.label.toLowerCase().includes(query)) {
+              results.push({
+                type: item.label.toLowerCase(),
+                title: link.label,
+                href: link.href,
+                category: group.group,
+                icon: link.icon,
+              });
+            }
+          });
+        });
+      }
+    });
+
+    setSearchResults(results.slice(0, 8)); // Limit to 8 results
+  }, [searchQuery]);
+
+  const handleSearchResultClick = (href) => {
+    setSearchOpen(false);
+    setSearchQuery('');
+    navigate(href);
+  };
+
   const toggleMobile = (label) => setExpanded(p => p === label ? null : label);
 
   return (
@@ -45,7 +97,7 @@ export default function Header() {
 
           {/* ── Logo ─────────────────────────────────────────── */}
           <Link to="/" className="logo">
-            <img src="/MainLogo.png" alt="Waleeco logo" className="logo-img" />
+            <img src="/Waleeco/MainLogo.png" alt="Waleeco logo" className="logo-img" />
           </Link>
 
           {/* ── Desktop Nav ───────────────────────────────────── */}
@@ -69,6 +121,7 @@ export default function Header() {
                               <div className="megamenu-group-title">{grp.group}</div>
                               {grp.links.map((lnk) => (
                                 <Link key={lnk.label} to={lnk.href} className="megamenu-link">
+                                  <span className="megamenu-link-icon">{lnk.icon}</span>
                                   {lnk.label}
                                 </Link>
                               ))}
@@ -164,13 +217,43 @@ export default function Header() {
               <input
                 ref={searchRef}
                 type="text"
-                placeholder="Search services, industries, insights…"
+                placeholder="Search services and industries…"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') setSearchOpen(false);
+                }}
               />
               <button onClick={() => setSearchOpen(false)} style={{ color: 'var(--text-muted)' }}>
                 <FiX size={20} />
               </button>
             </div>
-            <div className="search-hint">Start typing to search across Waleeco…</div>
+            {searchQuery.trim() && (
+              <div className="search-results">
+                {searchResults.length > 0 ? (
+                  searchResults.map((result, idx) => (
+                    <button
+                      key={idx}
+                      className="search-result-item"
+                      onClick={() => handleSearchResultClick(result.href)}
+                    >
+                      <div className="search-result-icon">{result.icon || '→'}</div>
+                      <div className="search-result-content">
+                        <div className="search-result-title">{result.title}</div>
+                        <div className="search-result-category">{result.category}</div>
+                      </div>
+                    </button>
+                  ))
+                ) : (
+                  <div className="search-no-results">
+                    No results found for "{searchQuery}"
+                  </div>
+                )}
+              </div>
+            )}
+            {!searchQuery.trim() && (
+              <div className="search-hint">Start typing to search across Waleeco…</div>
+            )}
           </div>
         </div>
       )}

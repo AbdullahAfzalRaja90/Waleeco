@@ -29,7 +29,6 @@ const footerCols = [
     links: [
       { label: 'About Us',            href: '/about' },
       { label: 'Leadership',          href: '/about' },
-      { label: 'Insights',            href: '/insights' },
       { label: 'Contact Us',          href: '/contact' },
     ],
   },
@@ -55,7 +54,7 @@ export default function Footer() {
         <div className="footer-newsletter">
           <div className="footer-newsletter-text">
             <div className="footer-newsletter-title">Stay ahead of the curve</div>
-            <div className="footer-newsletter-sub">Get our latest insights, reports, and company news delivered to your inbox.</div>
+            <div className="footer-newsletter-sub">Get our latest updates, reports, and company news delivered to your inbox.</div>
           </div>
           <form
             className="footer-newsletter-form"
@@ -77,7 +76,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="logo" style={{ marginBottom: 0, display: 'flex', alignItems: 'center' }}>
-              <img src="/MainLogo.png" alt="Waleeco logo" className="logo-img" />
+              <img src="/Waleeco/MainLogo.png" alt="Waleeco logo" className="logo-img" />
             </Link>
 
             <p className="footer-brand-desc">
@@ -110,7 +109,7 @@ export default function Footer() {
               </a>
               <span style={{ display: 'flex', gap: 10, alignItems: 'center', fontSize: 13, color: 'var(--text-secondary)' }}>
                 <FiMapPin size={14} style={{ color: 'var(--blue)', flexShrink: 0 }} />
-                Islamabad, Pakistan (HQ)
+                Islamabad, Pakistan
               </span>
             </div>
           </div>

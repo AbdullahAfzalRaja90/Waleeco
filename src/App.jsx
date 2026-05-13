@@ -7,10 +7,10 @@ import Footer from './components/Footer';
 import Home           from './pages/Home';
 import About          from './pages/About';
 import Services       from './pages/Services';
+import ServiceDetail  from './pages/ServiceDetail';
 import ServiceAI      from './pages/ServiceAI';
 import Industries     from './pages/Industries';
 import IndustryDetail from './pages/IndustryDetail';
-import Insights       from './pages/Insights';
 import Contact        from './pages/Contact';
 
 /* ── Scroll to top on every route change ───────────── */
@@ -32,10 +32,10 @@ function Layout() {
           <Route path="/about"                      element={<About />}          />
           <Route path="/company-overview"           element={<About />}          />
           <Route path="/services"                   element={<Services />}       />
+          <Route path="/services/:serviceId"        element={<ServiceDetail />}  />
           <Route path="/services/ai-transformation" element={<ServiceAI />}     />
           <Route path="/industries"                 element={<Industries />}     />
           <Route path="/industries/:industryId"     element={<IndustryDetail />} />
-          <Route path="/insights"                   element={<Insights />}       />
           <Route path="/contact"                    element={<Contact />}        />
           {/* Catch-all → Home */}
           <Route path="*"                           element={<Home />}           />

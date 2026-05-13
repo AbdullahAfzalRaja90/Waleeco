@@ -3,26 +3,71 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import {
   FiArrowRight, FiArrowUpRight, FiChevronLeft, FiChevronRight,
-  FiZap, FiDatabase, FiMonitor, FiCloud, FiShield, FiTrendingUp,
+  FiZap, FiShield, FiTrendingUp,
 } from 'react-icons/fi';
 import {
-  heroSlides, stats, services, insights, partners,
-  industries,
+  heroSlides, stats,
+  industries, serviceCatalog,
 } from '../data/siteData';
 
-/* ── Service icon map ─────────────────────────────────────────── */
-const serviceIcons = {
-  'ai-transformation': FiZap,
-  'data-analytics':    FiDatabase,
-  digital:             FiMonitor,
-  cloud:               FiCloud,
-};
+const MotionLink = motion(Link);
 
 /* ── CTA feature items ───────────────────────────────────────── */
 const ctaFeatures = [
   { icon: <FiZap />,       title: 'AI-first delivery',    desc: 'Every engagement powered by machine learning and advanced analytics.' },
   { icon: <FiShield />,    title: 'Enterprise security',  desc: 'ISO 27001 certified with SOC 2 compliant processes end-to-end.' },
   { icon: <FiTrendingUp />,title: 'Measurable outcomes',  desc: 'SLA-backed commitments with real-time dashboards and KPIs.' },
+];
+
+const testimonials = [
+  {
+    quote: 'Waleeco brought structure, speed, and clarity to a complex transformation program. Their team felt like an extension of ours from day one.',
+    name: 'Rehan Qadri',
+    role: 'Director Digital Business Transformation',
+    company: 'Khaadi',
+    initials: 'RQ',
+    accent: 'rgba(30, 95, 214, 0.18)',
+  },
+  {
+    quote: 'The team translated strategy into delivery with rare consistency. We saw faster decisions, cleaner execution, and a much stronger operating rhythm.',
+    name: 'Ayesha Malik',
+    role: 'Chief Operating Officer',
+    company: 'Nexa Retail Group',
+    initials: 'AM',
+    accent: 'rgba(230, 51, 41, 0.18)',
+  },
+  {
+    quote: 'What stood out most was the quality of collaboration. Waleeco kept the program moving without losing sight of business outcomes.',
+    name: 'Hamza Shah',
+    role: 'VP Technology',
+    company: 'Atlas Financial',
+    initials: 'HS',
+    accent: 'rgba(16, 185, 129, 0.18)',
+  },
+  {
+    quote: 'They helped us modernize a legacy environment without disrupting service. The rollout was disciplined, practical, and well-managed.',
+    name: 'Sara Ahmed',
+    role: 'Head of Digital Platforms',
+    company: 'Mena Connect',
+    initials: 'SA',
+    accent: 'rgba(245, 158, 11, 0.18)',
+  },
+  {
+    quote: 'We needed a partner that could think beyond implementation. Waleeco delivered a roadmap, a delivery engine, and measurable progress.',
+    name: 'Omar Farooq',
+    role: 'Managing Director',
+    company: 'Northstar Holdings',
+    initials: 'OF',
+    accent: 'rgba(124, 58, 237, 0.18)',
+  },
+  {
+    quote: 'Their combination of technical depth and business understanding made the difference. It was a smooth engagement with real impact.',
+    name: 'Mariam Yusuf',
+    role: 'Chief Transformation Officer',
+    company: 'Crescent Enterprises',
+    initials: 'MY',
+    accent: 'rgba(59, 130, 246, 0.18)',
+  },
 ];
 
 /* ── Animation variant ───────────────────────────────────────── */
@@ -58,17 +103,26 @@ function CountUp({ end, suffix = '' }) {
 
 export default function Home() {
   const [slide, setSlide] = useState(0);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
   const total = heroSlides.length;
+  const testimonialTotal = testimonials.length;
 
   useEffect(() => {
     const t = setInterval(() => setSlide(s => (s + 1) % total), 7000);
     return () => clearInterval(t);
   }, [total]);
 
+  useEffect(() => {
+    const t = setInterval(() => setTestimonialIndex(s => (s + 1) % testimonialTotal), 6500);
+    return () => clearInterval(t);
+  }, [testimonialTotal]);
+
   const prev = () => setSlide(s => (s - 1 + total) % total);
   const next = () => setSlide(s => (s + 1) % total);
+  const prevTestimonial = () => setTestimonialIndex(s => (s - 1 + testimonialTotal) % testimonialTotal);
+  const nextTestimonial = () => setTestimonialIndex(s => (s + 1) % testimonialTotal);
   const current = heroSlides[slide];
-  const doubled = [...partners, ...partners];
+  const currentTestimonial = testimonials[testimonialIndex];
 
   return (
     <main>
@@ -79,12 +133,24 @@ export default function Home() {
             <motion.div
               key={slide}
               className="hero-mesh-bg"
-              style={{ backgroundImage: `url(${current.bg})` }}
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            />
+            >
+              <video
+                className="hero-mesh-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster={current.bg}
+              >
+                <source src={current.videoSrc} type="video/mp4" />
+              </video>
+              <div className="hero-mesh-overlay" />
+            </motion.div>
           </AnimatePresence>
           <div className="hero-orb hero-orb-1" />
           <div className="hero-orb hero-orb-2" />
@@ -105,40 +171,23 @@ export default function Home() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.4 }}
                 >
-                  {current.titleLine1 && (
-                    <span className="hero-headline-line">
+                  {[
+                    { text: current.titleLine1, className: '' , delay: 0 },
+                    { text: current.titleLine2, className: 'grad-text', delay: 0.08 },
+                    { text: current.titleLine3, className: '', delay: 0.16 },
+                  ].map(({ text, className, delay }, index) => (
+                    <span className="hero-headline-line" key={`${slide}-line-${index}`}>
                       <motion.span
+                        className={className || undefined}
                         initial={{ y: '105%' }}
                         animate={{ y: 0 }}
-                        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ duration: 0.85, delay, ease: [0.22, 1, 0.36, 1] }}
+                        style={{ visibility: text ? 'visible' : 'hidden' }}
                       >
-                        {current.titleLine1}
+                        {text || '\u00A0'}
                       </motion.span>
                     </span>
-                  )}
-                  {current.titleLine2 && (
-                    <span className="hero-headline-line">
-                      <motion.span
-                        className="grad-text"
-                        initial={{ y: '105%' }}
-                        animate={{ y: 0 }}
-                        transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-                      >
-                        {current.titleLine2}
-                      </motion.span>
-                    </span>
-                  )}
-                  {current.titleLine3 && (
-                    <span className="hero-headline-line">
-                      <motion.span
-                        initial={{ y: '105%' }}
-                        animate={{ y: 0 }}
-                        transition={{ duration: 0.85, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-                      >
-                        {current.titleLine3}
-                      </motion.span>
-                    </span>
-                  )}
+                  ))}
                 </motion.h1>
               </AnimatePresence>
 
@@ -164,7 +213,7 @@ export default function Home() {
                 transition={{ duration: 0.7, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Link to={current.ctaLink} className="btn btn-primary btn-lg">
-                  {current.cta} <FiArrowRight />
+                  LEARN MORE <FiArrowRight />
                 </Link>
                 <Link to="/about" className="btn btn-outline btn-lg">
                   Our Story
@@ -172,18 +221,6 @@ export default function Home() {
               </motion.div>
             </div>
           </div>
-        </div>
-
-        {/* Floating stats (desktop) */}
-        <div className="hero-stats-float">
-          {stats.map(s => (
-            <div className="hero-stat-cell" key={s.label}>
-              <div className="hero-stat-num">
-                <CountUp end={s.number} suffix={s.suffix} />
-              </div>
-              <div className="hero-stat-lbl">{s.label}</div>
-            </div>
-          ))}
         </div>
 
         {/* Slide dots */}
@@ -211,18 +248,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ PARTNERS MARQUEE ════════════════════════════════════ */}
-      <div className="partners-strip">
-        <div className="partners-label">Trusted by industry leaders worldwide</div>
-        <div className="marquee-track-wrap">
-          <div className="marquee-track">
-            {doubled.map((p, i) => (
-              <div className="partner-pill" key={i}>{p}</div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* ══ STATS BAND ══════════════════════════════════════════ */}
       <section className="stats-band">
         <div className="container">
@@ -247,56 +272,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ SERVICES — panel list ════════════════════════════════ */}
+      {/* ══ SERVICES — transformation grid ═══════════════════════ */}
       <section className="services-section section">
         <div className="container">
           <div className="services-header">
             <div>
-              <div className="eyebrow">What we do</div>
+              <div className="eyebrow">Our Services</div>
               <h2 className="section-title services-title">
-                End-to-end technology<br />transformation
+                Transform Your Business
               </h2>
             </div>
             <div>
               <p className="section-subtitle">
-                From strategy through deployment, we deliver technology solutions that create measurable, lasting impact across your enterprise.
+                We specialize in web development, app development, UI/UX design, and desktop engineering to help you launch and scale digital products.
               </p>
-              <Link to="/services" className="btn btn-outline" style={{ marginTop: '20px' }}>
-                All services <FiArrowRight />
-              </Link>
             </div>
           </div>
 
-          <div className="services-list">
-            {services.map((s, i) => {
-              const Icon = serviceIcons[s.id] || FiZap;
-              return (
-                <motion.div
-                  key={s.id}
-                  className="service-panel"
-                  style={{ '--panel-color': s.color }}
-                  custom={i}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: '-40px' }}
-                  variants={fadeUp}
-                >
-                  <div>
-                    <div className="service-panel-icon"><Icon size={22} /></div>
-                    <div className="service-panel-title">{s.title}</div>
-                    <div className="service-panel-tags">
-                      <span className="service-tag">Consulting</span>
-                      <span className="service-tag">Implementation</span>
-                      <span className="service-tag">Managed</span>
-                    </div>
-                  </div>
-                  <div className="service-panel-desc">{s.desc}</div>
-                  <Link to={s.link} className="service-panel-cta" aria-label={`Learn about ${s.title}`}>
-                    <FiArrowUpRight size={20} />
-                  </Link>
-                </motion.div>
-              );
-            })}
+          <div className="services-showcase-grid">
+            {serviceCatalog.map((item, i) => (
+              <MotionLink
+                key={item.id}
+                className="service-showcase-card"
+                to={item.link}
+                aria-label={`Open ${item.title}`}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-30px' }}
+                variants={fadeUp}
+              >
+                <img src={item.image} alt={item.title} loading="lazy" className="service-showcase-image" />
+                <div className="service-showcase-overlay" />
+                <div className="service-showcase-content">
+                  <div className="service-showcase-chip">{item.category}</div>
+                  <h3>{item.title}</h3>
+                  <p>{item.blurb}</p>
+                </div>
+                <div className="service-showcase-link">
+                  Explore <FiArrowUpRight size={14} />
+                </div>
+              </MotionLink>
+            ))}
+          </div>
+
+          <div className="services-showcase-footer">
+            <Link to="/services" className="btn btn-outline">
+              View all services <FiArrowRight />
+            </Link>
           </div>
         </div>
       </section>
@@ -343,68 +366,74 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ INSIGHTS ════════════════════════════════════════════ */}
-      <section className="insights-section section">
-        <div className="container">
-          <div className="insights-header">
-            <div>
-              <div className="eyebrow">Insights</div>
-              <h2 className="section-title" style={{ marginTop: '16px' }}>
-                Ideas shaping<br />the industry
-              </h2>
-            </div>
-            <Link to="/insights" className="btn btn-outline">View all <FiArrowRight /></Link>
-          </div>
-
-          <div className="insights-grid">
-            {insights.slice(0, 3).map((item, i) => (
-              <motion.div
-                className="insight-card"
-                key={item.id}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-40px' }}
-                variants={fadeUp}
-              >
-                <div className="insight-card-img-wrap">
-                  <img src={item.img} alt={item.title} className="insight-card-img" loading="lazy" />
-                </div>
-                <div className="insight-card-body">
-                  <span className="insight-type-tag">{item.type}</span>
-                  <div className="insight-card-title">{item.title}</div>
-                  <div className="insight-card-excerpt">{item.excerpt}</div>
-                  <div className="insight-card-footer">
-                    <Link to={item.link} className="insight-read-more">
-                      Read more <FiArrowRight size={13} />
-                    </Link>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ══ QUOTE ════════════════════════════════════════════════ */}
       <section className="quote-section">
         <div className="container">
           <motion.div
-            className="quote-inner"
+            className="testimonial-slider"
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="quote-mark-lg">"</span>
-            <p className="quote-body">
-              Waleeco's ability to deliver on large-scale projects is second to none.
-              Their team seamlessly integrated with ours, and we went live in under six months —
-              a feat that seemed impossible before our partnership began.
-            </p>
-            <div className="quote-divider" />
-            <div className="quote-author-name">Rehan Qadri</div>
-            <div className="quote-author-role">Director Digital Business Transformation · Khaadi</div>
+            <div className="testimonial-slider-head">
+              <div>
+                <div className="eyebrow" style={{ marginBottom: 14 }}>Testimonials</div>
+                <h2 className="section-title" style={{ margin: 0 }}>What clients say about working with us</h2>
+              </div>
+              <div className="testimonial-controls">
+                <button className="testimonial-arrow" onClick={prevTestimonial} aria-label="Previous testimonial">
+                  <FiChevronLeft size={18} />
+                </button>
+                <button className="testimonial-arrow" onClick={nextTestimonial} aria-label="Next testimonial">
+                  <FiChevronRight size={18} />
+                </button>
+              </div>
+            </div>
+
+            <div className="testimonial-viewport">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={testimonialIndex}
+                  className="testimonial-card"
+                  style={{ '--testimonial-accent': currentTestimonial.accent }}
+                  initial={{ opacity: 0, y: 24, scale: 0.99 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -16, scale: 0.99 }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <div className="testimonial-quote-mark">“</div>
+                  <p className="testimonial-quote">{currentTestimonial.quote}</p>
+
+                  <div className="testimonial-meta">
+                    <div className="testimonial-avatar" aria-hidden="true">
+                      {currentTestimonial.initials}
+                    </div>
+                    <div>
+                      <div className="testimonial-name">{currentTestimonial.name}</div>
+                      <div className="testimonial-role">{currentTestimonial.role}</div>
+                      <div className="testimonial-company">{currentTestimonial.company}</div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            <div className="testimonial-footer">
+              <div className="testimonial-dots" aria-label="Testimonial navigation">
+                {testimonials.map((item, index) => (
+                  <button
+                    key={item.name}
+                    className={`testimonial-dot${index === testimonialIndex ? ' active' : ''}`}
+                    onClick={() => setTestimonialIndex(index)}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <div className="testimonial-counter">
+                {String(testimonialIndex + 1).padStart(2, '0')} / {String(testimonialTotal).padStart(2, '0')}
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

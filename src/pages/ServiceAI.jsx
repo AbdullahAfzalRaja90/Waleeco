@@ -50,8 +50,8 @@ export default function ServiceAI() {
                 <Link to="/contact" className="btn btn-primary">
                   Start your AI journey <FiArrowRight />
                 </Link>
-                <Link to="/insights" className="btn btn-outline">
-                  Read our research
+                <Link to="/services" className="btn btn-outline">
+                  Explore services
                 </Link>
               </div>
             </FadeUp>
@@ -286,8 +286,8 @@ export default function ServiceAI() {
             <Link to="/contact" className="btn btn-primary">
               Talk to an AI expert <FiArrowRight />
             </Link>
-            <Link to="/insights" className="btn btn-outline">
-              Explore AI research
+            <Link to="/services" className="btn btn-outline">
+              Explore services
             </Link>
           </div>
         </div>
