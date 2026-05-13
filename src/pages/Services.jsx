@@ -230,11 +230,11 @@ export default function Services() {
       <section className="services-impact-band">
         <div className="container services-impact-grid">
           <div className="services-impact-item">
-            <div className="services-impact-number"><CountUp end={300} suffix="+" /></div>
+            <div className="services-impact-number"><CountUp end={5} suffix="+" /></div>
             <div className="services-impact-label">Enterprise projects delivered</div>
           </div>
           <div className="services-impact-item">
-            <div className="services-impact-number"><CountUp end={16} suffix="+" /></div>
+            <div className="services-impact-number"><CountUp end={3} suffix="+" /></div>
             <div className="services-impact-label">Countries supported</div>
           </div>
           <div className="services-impact-item">
