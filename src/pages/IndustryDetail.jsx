@@ -42,19 +42,6 @@ export default function IndustryDetail() {
         />
         <div className="ind-detail-hero-overlay" />
         <div className="container ind-detail-hero-content">
-          <motion.nav
-            className="breadcrumb"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Link to="/">Home</Link>
-            <span className="breadcrumb-sep">/</span>
-            <Link to="/industries">Industries</Link>
-            <span className="breadcrumb-sep">/</span>
-            <span>{industry.title}</span>
-          </motion.nav>
-
           <motion.div
             className="eyebrow"
             style={{ marginTop: 32, marginBottom: 20 }}

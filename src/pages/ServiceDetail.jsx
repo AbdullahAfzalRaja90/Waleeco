@@ -176,13 +176,6 @@ export default function ServiceDetail() {
       <section className="page-hero service-detail-hero">
         <div className="service-detail-hero-bg" style={{ backgroundImage: `url(${service.image})` }} />
         <div className="container page-hero-content">
-          <nav className="breadcrumb">
-            <Link to="/">Home</Link>
-            <span className="breadcrumb-sep">/</span>
-            <Link to="/services">Services</Link>
-            <span className="breadcrumb-sep">/</span>
-            <span>{detail.title}</span>
-          </nav>
           <motion.p className="eyebrow" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
             {service.category || 'Service'}
           </motion.p>
