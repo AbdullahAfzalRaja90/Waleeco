@@ -3138,7 +3138,18 @@ input, textarea, select { font-family: inherit; }
 .footer-newsletter-text { flex: 1; min-width: 200px; }
 .footer-newsletter-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--text-white); margin-bottom: 4px; }
 .footer-newsletter-sub   { font-size: 13px; color: var(--text-secondary); }
-.footer-newsletter-form  { display: flex; gap: 8px; flex-shrink: 0; }
+.footer-newsletter-form  {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.footer-newsletter-form .btn {
+  justify-content: center;
+  text-align: center;
+  min-width: 140px;
+}
 .footer-newsletter-input {
   background: var(--bg-2);
   border: 1px solid var(--border-md);
@@ -3148,6 +3159,8 @@ input, textarea, select { font-family: inherit; }
   color: var(--text-primary);
   outline: none;
   width: 260px;
+  min-width: 0;
+  flex: 1 1 220px;
   transition: border-color var(--t-fast);
 }
 .footer-newsletter-input:focus { border-color: var(--red); }
@@ -3267,6 +3280,7 @@ input, textarea, select { font-family: inherit; }
   .footer-newsletter { flex-direction: column; align-items: stretch; }
   .footer-newsletter-form { width: 100%; }
   .footer-newsletter-input { width: 100%; }
+  .footer-newsletter-form .btn { width: 100%; }
   .services-header { align-items: flex-start; flex-direction: column; }
   .services-showcase-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .services-showcase-grid-page { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -3368,6 +3382,7 @@ input, textarea, select { font-family: inherit; }
   .footer-newsletter { flex-direction: column; align-items: stretch; }
   .footer-newsletter-form { width: 100%; }
   .footer-newsletter-input { width: 100%; }
+  .footer-newsletter-form .btn { width: 100%; }
   .contact-form-card { padding: 24px 18px; }
   .section-title { font-size: clamp(22px, 11vw, 32px); }
   .testimonial-slider-head { gap: 16px; }
@@ -4144,7 +4159,7 @@ input, textarea, select { font-family: inherit; }
 .prem-cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 /* ================================================================
-   ABOUT PAGE — Premium
+ABOUT PAGE — Premium
    ================================================================ */
 .prem-tabs-nav {
   display: flex;
