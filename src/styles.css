@@ -3508,6 +3508,7 @@ input, textarea, select { font-family: inherit; }
   gap: clamp(40px, 6vw, 100px);
   align-items: center;
 }
+.ind-detail-intro-left {}
 .ind-detail-image-wrap {
   position: relative;
 }
@@ -3675,6 +3676,7 @@ input, textarea, select { font-family: inherit; }
   gap: clamp(40px, 6vw, 80px);
   align-items: center;
 }
+.ind-detail-why-left {}
 .ind-detail-why-right {
   display: flex;
   flex-direction: column;
@@ -4104,6 +4106,7 @@ input, textarea, select { font-family: inherit; }
   letter-spacing: 0.1em;
   color: var(--text-muted);
 }
+.prem-ind-row-body {}
 .prem-ind-row-title {
   font-family: var(--font-display);
   font-size: clamp(15px, 1.3vw, 20px);
@@ -4233,6 +4236,7 @@ ABOUT PAGE — Premium
   align-items: center;
   margin-bottom: 64px;
 }
+.prem-about-two-col-text {}
 .prem-about-two-col-visual { position: relative; }
 .prem-about-img {
   width: 100%;
