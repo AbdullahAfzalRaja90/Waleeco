@@ -35,11 +35,6 @@ const footerCols = [
 
 const socials = [
   // placeholder links; update with Waleeco social URLs as needed
-  { Icon: FiLinkedin,  href: '#', label: 'LinkedIn' },
-  { Icon: FiTwitter,   href: '#', label: 'Twitter'  },
-  { Icon: FiFacebook,  href: '#', label: 'Facebook' },
-  { Icon: FiYoutube,   href: '#', label: 'YouTube'  },
-  { Icon: FiInstagram, href: '#', label: 'Instagram'},
 ];
 
 export default function Footer() {
@@ -131,14 +126,8 @@ export default function Footer() {
         {/* ── Bottom bar ───────────────────────────────────── */}
         <div className="footer-bottom">
           <div className="footer-copyright">
-            © {year} Waleeco. All rights reserved.
+            © Waleeco. All rights reserved.
           </div>
-          <nav className="footer-legal-links">
-            <a href="/" className="footer-legal-link">Privacy Policy</a>
-            <a href="/" className="footer-legal-link">Terms of Use</a>
-            <a href="/" className="footer-legal-link">Cookie Policy</a>
-            <a href="/" className="footer-legal-link">Accessibility</a>
-          </nav>
         </div>
       </div>
     </footer>
