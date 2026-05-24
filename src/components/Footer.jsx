@@ -7,12 +7,12 @@ import {
 const footerCols = [
   {
     title: 'Services',
-    links: [
-      { label: 'AI Transformation', href: '/services/ai-transformation' },
-      { label: 'Data & Analytics',  href: '/services/data' },
-      { label: 'Digital',           href: '/services/digital' },
-      { label: 'Cloud',             href: '/services/cloud' },
-    ],
+     links: [
+          { label: 'Web Development', href: '/services/web-development'},
+          { label: 'App Development', href: '/services/app-development'},
+          { label: 'UI/UX Design', href: '/services/ui-ux-design' },
+          { label: 'Desktop Development', href: '/services/desktop-development' },
+        ],
   },
   {
     title: 'Industries',
@@ -28,7 +28,6 @@ const footerCols = [
     title: 'Company',
     links: [
       { label: 'About Us',            href: '/about' },
-      { label: 'Leadership',          href: '/about' },
       { label: 'Contact Us',          href: '/contact' },
     ],
   },

@@ -255,10 +255,9 @@ export const industries = [
       { title: 'Data, AI & Integration', desc: 'Unlock the power of data-driven decision-making and seamless integration with our solid, end-to-end data management expertise.' },
     ],
     stats: [
-      { number: '1200+', label: 'Global banking clients' },
-      { number: '25+', label: 'Certified consultants and engineers on banking technology' },
-      { number: '30', label: 'Years of experience in transforming banks' },
-      { number: '150+', label: 'Million customers bank on the systems implemented by us' },
+      { number: '2+', label: 'Global banking clients' },
+      { number: '3+', label: 'Certified consultants and engineers on banking technology' },
+      { number: '3', label: 'Years of experience in transforming banks' },
     ],
     color: '#0ea5e9',
   },
