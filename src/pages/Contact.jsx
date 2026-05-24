@@ -1,179 +1,142 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 
-function FadeUp({ children, delay = 0 }) {
-  return (
-    <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}>
-      {children}
-    </motion.div>
-  );
-}
-
 const OFFICES = [
   {
-    city: 'Islamabad',
-    country: 'Pakistan',
+    city: 'Islamabad', country: 'Pakistan',
     address: '3rd Floor, Evacuee Trust Complex, F-5/1, Islamabad',
-    phone: '+92 312 5612116',
-    email: 'info@waleeco.com',
+    phone: '+92 312 5612116', email: 'info@waleeco.com',
   },
 ];
+
+const fadeUp = {
+  hidden:  { opacity: 0, y: 28 },
+  visible: (i = 0) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.65, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '' });
   const [sent, setSent] = useState(false);
-
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
-  const handleSubmit = e => {
-    e.preventDefault();
-    setSent(true);
-  };
+  const handleSubmit = e => { e.preventDefault(); setSent(true); };
 
   return (
-    <>
-      {/* ── PAGE HERO ───────────────────────────────────────── */}
-      <section className="page-hero contact-hero">
-        <div className="container">
-          <div className="page-hero-content" style={{ maxWidth: 640 }}>
-            <FadeUp><p className="eyebrow">Contact</p></FadeUp>
-            <FadeUp delay={0.1}>
-              <h1 className="hero-title">
-                How can we<br /><span className="text-red">help you?</span>
-              </h1>
-            </FadeUp>
-            <FadeUp delay={0.2}>
-              <p className="hero-subtitle">
-                Whether you're exploring a partnership, seeking a custom solution, or have a question about our services — we'd love to hear from you.
-              </p>
-            </FadeUp>
-          </div>
+    <main>
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="prem-hero prem-hero--compact">
+        <div className="prem-hero-bg" style={{
+          backgroundImage: "linear-gradient(108deg,rgba(0,0,0,0.94) 0%,rgba(0,0,0,0.70) 60%,rgba(0,0,0,0.88) 100%), url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1600&q=80')",
+        }} />
+        <div className="prem-hero-grid-overlay" />
+        <div className="container prem-hero-content">
+          <motion.div className="eyebrow" initial={{ opacity:0, y:16 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5 }}>
+            Contact
+          </motion.div>
+          <motion.h1 className="prem-hero-title" initial={{ opacity:0, y:32 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.12, duration:0.85, ease:[0.16,1,0.3,1] }}>
+            How can we<br /><span className="prem-hero-accent">help you?</span>
+          </motion.h1>
+          <motion.p className="prem-hero-sub" style={{ maxWidth:520 }} initial={{ opacity:0, y:18 }} animate={{ opacity:1, y:0 }} transition={{ delay:0.3, duration:0.65 }}>
+            Whether you're exploring a partnership, seeking a custom solution, or have a question about our services — we'd love to hear from you.
+          </motion.p>
         </div>
       </section>
 
-      {/* ── FORM + OFFICES ──────────────────────────────────── */}
-      <section className="contact-section section">
+      {/* ── FORM + OFFICES ───────────────────────────────────── */}
+      <section className="prem-section prem-section--dark">
         <div className="container">
-          <div className="contact-grid">
+          <div className="prem-contact-grid">
 
-            {/* ── Contact Form */}
-            <FadeUp>
-              <div className="contact-form-panel">
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: 8 }}>Send us a message</h2>
-              <p style={{ color: 'var(--clr-text-muted)', marginBottom: 36, fontSize: '0.95rem' }}>
+            {/* ── Form panel ─────────────────────────────────── */}
+            <motion.div className="prem-contact-form-card" initial={{ opacity:0, x:-32 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.7 }}>
+              <div className="prem-section-label" style={{ marginBottom:10 }}>Send a Message</div>
+              <h2 className="prem-h3" style={{ marginBottom:8 }}>Get in touch with our team</h2>
+              <p className="prem-body" style={{ marginBottom:32 }}>
                 Fill in the form and a member of our team will be in touch within one business day.
               </p>
 
               {sent ? (
-                <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-                  style={{ padding: '48px 40px', background: 'var(--clr-surface)', border: '1px solid var(--clr-primary)', borderRadius: 12, textAlign: 'center' }}>
-                  <div style={{ fontSize: '3rem', marginBottom: 16 }}>✅</div>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: 8 }}>Message sent!</h3>
-                  <p style={{ color: 'var(--clr-text-muted)' }}>Thank you for reaching out. We'll get back to you within one business day.</p>
+                <motion.div className="prem-contact-success" initial={{ opacity:0, scale:0.95 }} animate={{ opacity:1, scale:1 }}>
+                  <div className="prem-contact-success-icon">✓</div>
+                  <h3>Message sent!</h3>
+                  <p>Thank you for reaching out. We'll get back to you within one business day.</p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: 6, color: 'var(--clr-text-muted)' }}>Full Name *</label>
-                      <input name="name" value={form.name} onChange={handleChange} required placeholder="Jane Smith"
-                        style={inputStyle} />
+                <form onSubmit={handleSubmit} className="prem-contact-form">
+                  <div className="prem-form-row">
+                    <div className="prem-form-group">
+                      <label className="prem-form-label">Full Name *</label>
+                      <input name="name" value={form.name} onChange={handleChange} required placeholder="Jane Smith" className="prem-form-input" />
                     </div>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: 6, color: 'var(--clr-text-muted)' }}>Email Address *</label>
-                      <input name="email" type="email" value={form.email} onChange={handleChange} required placeholder="jane@company.com"
-                        style={inputStyle} />
+                    <div className="prem-form-group">
+                      <label className="prem-form-label">Email Address *</label>
+                      <input name="email" type="email" value={form.email} onChange={handleChange} required placeholder="jane@company.com" className="prem-form-input" />
                     </div>
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: 6, color: 'var(--clr-text-muted)' }}>Phone Number</label>
-                      <input name="phone" value={form.phone} onChange={handleChange} placeholder="+1 (555) 000-0000"
-                        style={inputStyle} />
+                  <div className="prem-form-row">
+                    <div className="prem-form-group">
+                      <label className="prem-form-label">Phone Number</label>
+                      <input name="phone" value={form.phone} onChange={handleChange} placeholder="+1 (555) 000-0000" className="prem-form-input" />
                     </div>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: 6, color: 'var(--clr-text-muted)' }}>Company</label>
-                      <input name="company" value={form.company} onChange={handleChange} placeholder="Acme Corp"
-                        style={inputStyle} />
+                    <div className="prem-form-group">
+                      <label className="prem-form-label">Company</label>
+                      <input name="company" value={form.company} onChange={handleChange} placeholder="Acme Corp" className="prem-form-input" />
                     </div>
                   </div>
-                  <div>
-                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, marginBottom: 6, color: 'var(--clr-text-muted)' }}>How can we help? *</label>
+                  <div className="prem-form-group">
+                    <label className="prem-form-label">How can we help? *</label>
                     <textarea name="message" value={form.message} onChange={handleChange} required rows={5}
                       placeholder="Tell us about your project, challenges, or questions..."
-                      style={{ ...inputStyle, resize: 'vertical', minHeight: 140 }} />
+                      className="prem-form-input prem-form-textarea" />
                   </div>
-                  <button type="submit" className="btn btn-primary" style={{ alignSelf: 'flex-start', padding: '14px 36px', fontSize: '0.95rem' }}>
-                    Submit <FiArrowRight />
+                  <button type="submit" className="btn btn-primary btn-lg" style={{ alignSelf:'flex-start' }}>
+                    Send Message <FiArrowRight />
                   </button>
                 </form>
               )}
-              </div>
-            </FadeUp>
+            </motion.div>
 
-            {/* ── Office Info */}
-            <div className="contact-office-column">
-              <FadeUp delay={0.15}>
-                <div className="contact-office-header">
-                  <div className="contact-office-kicker">Our office</div>
-                  <h2>Islamabad</h2>
-                  <p>Our main point of contact for partnerships, delivery, and support.</p>
-                </div>
-                <div className="contact-office-list">
-                  {OFFICES.map((office, i) => (
-                    <motion.div key={i}
-                      className="contact-office-card"
-                      initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                    >
-                      <div className="contact-office-card-top">
-                        <div className="contact-office-icon-wrap">
-                          <FiMapPin className="contact-office-icon" />
-                        </div>
-                        <div>
-                          <div className="contact-office-city-row">
-                            <span className="contact-office-city">{office.city}</span>
-                            <span className="contact-office-country">{office.country}</span>
-                          </div>
-                          <div className="contact-office-badges">
-                            <span>HQ</span>
-                            <span>By appointment</span>
-                            <span>Mon-Fri</span>
-                          </div>
-                        </div>
+            {/* ── Office sidebar ─────────────────────────────── */}
+            <motion.div className="prem-contact-sidebar" initial={{ opacity:0, x:32 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.7, delay:0.1 }}>
+              <div className="prem-section-label" style={{ marginBottom:10 }}>Our Office</div>
+              <h2 className="prem-h3" style={{ marginBottom:8 }}>Islamabad</h2>
+              <p className="prem-body" style={{ marginBottom:32 }}>
+                Our main point of contact for partnerships, delivery, and support.
+              </p>
+              {OFFICES.map((o, i) => (
+                <div key={i} className="prem-office-card">
+                  <div className="prem-office-card-header">
+                    <div className="prem-office-icon-wrap"><FiMapPin size={16} /></div>
+                    <div>
+                      <div className="prem-office-city">{o.city} <span className="prem-office-country">{o.country}</span></div>
+                      <div className="prem-office-tags">
+                        <span>HQ</span><span>Mon – Fri</span><span>By appointment</span>
                       </div>
-                      <p className="contact-office-address">{office.address}</p>
-                      <div className="contact-office-links">
-                        <a href={`tel:${office.phone}`} className="contact-office-link">
-                          <FiPhone size={11} />{office.phone}
-                        </a>
-                        <a href={`mailto:${office.email}`} className="contact-office-link primary">
-                          <FiMail size={11} />{office.email}
-                        </a>
-                      </div>
-                    </motion.div>
-                  ))}
+                    </div>
+                  </div>
+                  <p className="prem-office-address">{o.address}</p>
+                  <div className="prem-office-links">
+                    <a href={`tel:${o.phone}`} className="prem-office-link"><FiPhone size={12} />{o.phone}</a>
+                    <a href={`mailto:${o.email}`} className="prem-office-link prem-office-link--primary"><FiMail size={12} />{o.email}</a>
+                  </div>
                 </div>
-              </FadeUp>
-            </div>
+              ))}
+
+              {/* Quick links */}
+              <div className="prem-contact-quick">
+                <div className="prem-section-label" style={{ marginBottom:16 }}>Quick Links</div>
+                <Link to="/services" className="prem-contact-quick-link">Our Services <FiArrowRight size={13} /></Link>
+                <Link to="/industries" className="prem-contact-quick-link">Industries <FiArrowRight size={13} /></Link>
+                <Link to="/about" className="prem-contact-quick-link">About Waleeco <FiArrowRight size={13} /></Link>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
-
-const inputStyle = {
-  width: '100%',
-  background: 'var(--clr-surface)',
-  border: '1px solid var(--clr-border)',
-  borderRadius: 8,
-  padding: '12px 16px',
-  color: '#fff',
-  fontSize: '0.88rem',
-  outline: 'none',
-  transition: 'border-color 0.25s',
-  boxSizing: 'border-box',
-};

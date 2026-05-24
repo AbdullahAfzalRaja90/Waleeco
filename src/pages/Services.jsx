@@ -155,7 +155,8 @@ export default function Services() {
                 aria-label={`Open ${item.title}`}
                 custom={i}
                 initial="hidden"
-                animate="visible"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-40px' }}
                 variants={fadeUp}
               >
                 <img src={item.image} alt={item.title} loading="lazy" className="service-showcase-image" />

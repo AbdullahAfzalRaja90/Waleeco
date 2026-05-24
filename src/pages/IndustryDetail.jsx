@@ -1,7 +1,15 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiCheck } from 'react-icons/fi';
+import { FiArrowRight, FiCheck, FiArrowUpRight } from 'react-icons/fi';
 import { industries } from '../data/siteData';
+
+const fadeUp = {
+  hidden:  { opacity: 0, y: 28 },
+  visible: (i = 0) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.65, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
 
 export default function IndustryDetail() {
   const { industryId } = useParams();
@@ -27,40 +35,50 @@ export default function IndustryDetail() {
   return (
     <main>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="page-hero" style={{ minHeight: '65vh', display: 'flex', alignItems: 'center' }}>
+      <section className="ind-detail-hero">
         <div
-          className="page-hero-bg"
+          className="ind-detail-hero-bg"
           style={{ backgroundImage: `url(${industry.heroImg})` }}
         />
-        <div className="container page-hero-content">
-          <nav className="breadcrumb">
+        <div className="ind-detail-hero-overlay" />
+        <div className="container ind-detail-hero-content">
+          <motion.nav
+            className="breadcrumb"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <Link to="/">Home</Link>
             <span className="breadcrumb-sep">/</span>
             <Link to="/industries">Industries</Link>
             <span className="breadcrumb-sep">/</span>
             <span>{industry.title}</span>
-          </nav>
-          <motion.p
+          </motion.nav>
+
+          <motion.div
             className="eyebrow"
+            style={{ marginTop: 32, marginBottom: 20 }}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
           >
             {industry.eyebrow || industry.title.toUpperCase()}
-          </motion.p>
+          </motion.div>
+
           <motion.h1
-            className="page-hero-title"
-            initial={{ opacity: 0, y: 24 }}
+            className="ind-detail-hero-title"
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             {industry.heroTitle}
           </motion.h1>
+
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.45 }}
-            style={{ display: 'flex', gap: 16, flexWrap: 'wrap', marginTop: 32 }}
+            className="ind-detail-hero-actions"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.6 }}
           >
             <Link to="/contact" className="btn btn-primary btn-lg">
               Talk to an Expert <FiArrowRight />
@@ -70,61 +88,78 @@ export default function IndustryDetail() {
             </Link>
           </motion.div>
         </div>
+
+        {/* Accent bar */}
+        <div className="ind-detail-hero-accent" style={{ background: industry.color || 'var(--red)' }} />
       </section>
 
-      {/* ── INTRO ────────────────────────────────────────────── */}
-      <section style={{ padding: 'var(--section-pad) 0', background: 'var(--clr-bg2)' }}>
+      {/* ── INTRO ─────────────────────────────────────────────── */}
+      <section className="ind-detail-intro-section">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,6vw,100px)', alignItems: 'center' }}>
+          <div className="ind-detail-intro-grid">
             <motion.div
+              className="ind-detail-intro-left"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <div className="section-label"><span>Overview</span></div>
-              <h2 className="display-sm" style={{ marginBottom: 24 }}>
+              <div className="ind-detail-label">
+                <span className="ind-detail-label-dot" style={{ background: industry.color || 'var(--red)' }} />
+                Overview
+              </div>
+              <h2 className="ind-detail-section-heading">
                 Transforming {industry.title}
               </h2>
-              <p style={{ fontSize: 16, color: 'var(--clr-muted2)', lineHeight: 1.8 }}>
+              <p className="ind-detail-body-text">
                 {industry.intro}
               </p>
               <Link to="/contact" className="btn btn-ghost" style={{ marginTop: 32 }}>
                 Get Started <FiArrowRight />
               </Link>
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.15 }}
             >
-              <img
-                src={industry.img}
-                alt={industry.title}
-                style={{ width: '100%', borderRadius: 'var(--radius-xl)', aspectRatio: '4/3', objectFit: 'cover' }}
-              />
+              <div className="ind-detail-image-wrap">
+                <img
+                  src={industry.img}
+                  alt={industry.title}
+                  className="ind-detail-image"
+                />
+                <div className="ind-detail-image-badge" style={{ borderColor: industry.color || 'var(--red)' }}>
+                  <span className="ind-detail-image-badge-icon" style={{ color: industry.color || 'var(--red)' }}>✦</span>
+                  <span>Industry Leader</span>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── STATS ────────────────────────────────────────────── */}
+      {/* ── STATS ─────────────────────────────────────────────── */}
       {industry.stats?.length > 0 && (
-        <section className="industry-stats">
+        <section className="ind-detail-stats-section">
           <div className="container">
-            <div className="industry-stats-grid">
+            <div className="ind-detail-stats-grid">
               {industry.stats.map((s, i) => (
                 <motion.div
                   key={s.label}
-                  className="industry-stat"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  className="ind-detail-stat"
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
+                  variants={fadeUp}
                 >
-                  <div className="industry-stat-num">{s.number}</div>
-                  <div className="industry-stat-label">{s.label}</div>
+                  <div className="ind-detail-stat-num" style={{ color: industry.color || 'var(--red)' }}>
+                    {s.number}
+                  </div>
+                  <div className="ind-detail-stat-label">{s.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -132,30 +167,45 @@ export default function IndustryDetail() {
         </section>
       )}
 
-      {/* ── OFFERINGS ────────────────────────────────────────── */}
+      {/* ── OFFERINGS ─────────────────────────────────────────── */}
       {industry.offerings?.length > 0 && (
-        <section className="industry-offerings">
+        <section className="ind-detail-offerings-section">
           <div className="container">
-            <div style={{ marginBottom: 48 }}>
-              <div className="section-label"><span>Our Offerings</span></div>
-              <h2 className="display-md">
+            <div className="ind-detail-offerings-header">
+              <div className="ind-detail-label">
+                <span className="ind-detail-label-dot" style={{ background: industry.color || 'var(--red)' }} />
+                Our Offerings
+              </div>
+              <h2 className="ind-detail-section-heading">
                 What we do in {industry.title}
               </h2>
+              <p className="ind-detail-body-text" style={{ maxWidth: 560 }}>
+                Comprehensive solutions built for the demands of modern {industry.title.toLowerCase()} organizations.
+              </p>
             </div>
-            <div className="offerings-grid">
+
+            <div className="ind-detail-offerings-grid">
               {industry.offerings.map((offering, i) => (
                 <motion.div
                   key={offering.title}
-                  className="offering-item"
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  className="ind-detail-offering-card"
+                  custom={i % 4}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true, margin: '-40px' }}
-                  transition={{ delay: (i % 4) * 0.1 }}
+                  variants={fadeUp}
                 >
-                  <span className="offering-num">{String(i + 1).padStart(2, '0')}</span>
-                  <div>
-                    <h3 className="offering-title">{offering.title}</h3>
-                    {offering.desc && <p className="offering-desc">{offering.desc}</p>}
+                  <div className="ind-detail-offering-num" style={{ color: industry.color || 'var(--red)', borderColor: `${industry.color || 'var(--red)'}30` }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
+                  <div className="ind-detail-offering-body">
+                    <h3 className="ind-detail-offering-title">{offering.title}</h3>
+                    {offering.desc && (
+                      <p className="ind-detail-offering-desc">{offering.desc}</p>
+                    )}
+                  </div>
+                  <div className="ind-detail-offering-arrow">
+                    <FiArrowUpRight size={14} />
                   </div>
                 </motion.div>
               ))}
@@ -164,23 +214,33 @@ export default function IndustryDetail() {
         </section>
       )}
 
-      {/* ── WHY SYSTEMS ──────────────────────────────────────── */}
-      <section style={{ padding: 'var(--section-pad) 0', background: 'var(--clr-bg)' }}>
+      {/* ── WHY WALEECO ───────────────────────────────────────── */}
+      <section className="ind-detail-why-section">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 'clamp(40px,6vw,80px)', alignItems: 'center' }}>
-            <div>
-              <div className="section-label"><span>Why Waleeco</span></div>
-              <h2 className="display-sm" style={{ marginBottom: 24 }}>
+          <div className="ind-detail-why-grid">
+            <motion.div
+              className="ind-detail-why-left"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="ind-detail-label">
+                <span className="ind-detail-label-dot" style={{ background: industry.color || 'var(--red)' }} />
+                Why Waleeco
+              </div>
+              <h2 className="ind-detail-section-heading">
                 A partner you can trust for the long run
               </h2>
-              <p style={{ color: 'var(--clr-muted)', fontSize: 14, lineHeight: 1.8 }}>
+              <p className="ind-detail-body-text">
                 With 48+ years of technology leadership and deep expertise in {industry.title.toLowerCase()}, Waleeco delivers outcomes that create lasting competitive advantage.
               </p>
-              <Link to="/contact" className="btn btn-primary" style={{ marginTop: 32 }}>
+              <Link to="/contact" className="btn btn-primary" style={{ marginTop: 36 }}>
                 Talk to an Expert <FiArrowRight />
               </Link>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            </motion.div>
+
+            <div className="ind-detail-why-right">
               {[
                 `Deep ${industry.title} domain expertise spanning decades`,
                 'Global delivery capabilities across 16+ countries',
@@ -191,16 +251,17 @@ export default function IndustryDetail() {
               ].map((point, i) => (
                 <motion.div
                   key={point}
-                  style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  className="ind-detail-why-point"
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
+                  variants={fadeUp}
                 >
-                  <div style={{ width: 24, height: 24, background: 'rgba(230,51,41,0.12)', borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 2 }}>
-                    <FiCheck size={13} color="var(--clr-primary)" />
+                  <div className="ind-detail-why-check" style={{ background: `${industry.color || 'var(--red)'}18` }}>
+                    <FiCheck size={13} style={{ color: industry.color || 'var(--red)' }} />
                   </div>
-                  <p style={{ fontSize: 14, color: 'var(--clr-muted2)', lineHeight: 1.6 }}>{point}</p>
+                  <p className="ind-detail-why-text">{point}</p>
                 </motion.div>
               ))}
             </div>
@@ -208,19 +269,33 @@ export default function IndustryDetail() {
         </div>
       </section>
 
-      {/* ── CTA ──────────────────────────────────────────────── */}
-      <section className="cta-section">
-        <div className="container cta-content">
-          <h2 className="cta-title">Ready to transform your {industry.title} business?</h2>
-          <p className="cta-subtitle">
-            Connect with our {industry.title} specialists to explore how we can drive your digital transformation.
-          </p>
-          <div className="cta-btns">
-            <Link to="/contact" className="btn btn-primary btn-lg">
-              Get in Touch <FiArrowRight />
-            </Link>
-            <Link to="/company-overview" className="btn btn-outline btn-lg">About Us</Link>
-          </div>
+      {/* ── CTA ───────────────────────────────────────────────── */}
+      <section className="ind-detail-cta-section">
+        <div className="ind-detail-cta-glow" style={{ background: `${industry.color || 'var(--red)'}22` }} />
+        <div className="container ind-detail-cta-content">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="eyebrow" style={{ marginBottom: 24, justifyContent: 'center' }}>
+              Ready to get started?
+            </div>
+            <h2 className="ind-detail-cta-title">
+              Ready to transform your<br />
+              <span style={{ color: industry.color || 'var(--red)' }}>{industry.title}</span> business?
+            </h2>
+            <p className="ind-detail-cta-sub">
+              Connect with our {industry.title} specialists to explore how we can drive your digital transformation.
+            </p>
+            <div className="ind-detail-cta-actions">
+              <Link to="/contact" className="btn btn-primary btn-lg">
+                Get in Touch <FiArrowRight />
+              </Link>
+              <Link to="/about" className="btn btn-outline btn-lg">About Us</Link>
+            </div>
+          </motion.div>
         </div>
       </section>
     </main>

@@ -79,6 +79,25 @@ const fadeUp = {
   }),
 };
 
+const staggerFadeUp = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const fadeUpItem = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 /* ── Animated counter ────────────────────────────────────────── */
 function CountUp({ end, suffix = '' }) {
   const [value, setValue] = useState(0);
@@ -289,17 +308,20 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="services-showcase-grid">
-            {serviceCatalog.map((item, i) => (
+          <motion.div
+            className="services-showcase-grid"
+            variants={staggerFadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+          >
+            {serviceCatalog.map((item) => (
               <MotionLink
                 key={item.id}
                 className="service-showcase-card"
                 to={item.link}
                 aria-label={`Open ${item.title}`}
-                custom={i}
-                initial="hidden"
-                animate="visible"
-                variants={fadeUp}
+                variants={fadeUpItem}
               >
                 <img src={item.image} alt={item.title} loading="lazy" className="service-showcase-image" />
                 <div className="service-showcase-overlay" />
@@ -313,7 +335,7 @@ export default function Home() {
                 </div>
               </MotionLink>
             ))}
-          </div>
+          </motion.div>
 
           <div className="services-showcase-footer">
             <Link to="/services" className="btn btn-outline">
