@@ -70,7 +70,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="logo" style={{ marginBottom: 0, display: 'flex', alignItems: 'center' }}>
-              <img src="/Waleeco/MainLogo.png" alt="Waleeco logo" className="logo-img" />
+              <img src="/MainLogo.png" alt="Waleeco logo" className="logo-img" />
             </Link>
 
             <p className="footer-brand-desc">

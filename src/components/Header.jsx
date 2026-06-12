@@ -97,7 +97,7 @@ export default function Header() {
 
           {/* ── Logo ─────────────────────────────────────────── */}
           <Link to="/" className="logo">
-            <img src="/Waleeco/MainLogo.png" alt="Waleeco logo" className="logo-img" />
+            <img src="/MainLogo.png" alt="Waleeco logo" className="logo-img" />
           </Link>
 
           {/* ── Desktop Nav ───────────────────────────────────── */}
